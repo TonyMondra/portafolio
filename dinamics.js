@@ -174,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (xhr.status === 200) {
                 formulario.reset();
                 formulario.remove();
+                document.getElementById('btnSend').remove();
                 document.getElementById('term-text').remove();
                 const formContainer = document.getElementById('contact-box');
                 const formResponse = document.createElement('span');
