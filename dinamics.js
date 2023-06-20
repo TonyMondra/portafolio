@@ -45,15 +45,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             case "input2":
                 var regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-                statusInput = 'ingresa una direccion valida!';
+                statusInput = 'ingrese una direccion valida!';
                 break;
             case "input3":
                 var regex = /^\d{10}$/;
-                statusInput = 'el numero debe terner una longitud de 10 digitos!';
+                statusInput = 'el numero debe tener una longitud de 10 digitos!';
                 break;
             case "input4":
-                var regex = /^[a-zA-Z0-9@,$.\s]{20,500}$/;
-                statusInput = '20 caracteres min (letras, emails y numeros)!';
+                var regex = /^[a-zA-Z0-9@,$.\s]{100,500}$/;
+                statusInput = '100 caracteres min (letras, emails y numeros)!';
                 break;
         }
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
             flecha[0].classList.add("correctInput");
 
             infoTerminal.classList.remove('advertencia');
-            infoTerminal.textContent= 'Rellena los campos faltantes';
+            infoTerminal.textContent= 'Rellene los campos faltantes';
             
 
         }
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (counter >= 4) {
             showSendBtn();
             removeEmptyBlink();
-            infoTerminal.textContent = 'Listo, presiona el boton para enviar el formulario';
+            infoTerminal.textContent = 'Listo, ya puedes enviar el formulario';
         }
 
         else {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function showSendBtn() {
-        const divElement = document.getElementById('sendIconDiv');
+        const divElement = document.getElementById('sendBtnContainer');
 
 
         if (!divElement.querySelector('button[type="submit"]')) {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
             submitButton.classList.add('fa-paper-plane');
             submitButton.classList.add('fa-beat');
             submitButton.classList.add('fa-2xl');
-
+            submitButton.setAttribute('form','formularioContacto');
             divElement.append(submitButton);
 
         }

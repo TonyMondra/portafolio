@@ -24,64 +24,6 @@ body {
     justify-content: space-around;
 }
 
-@media (max-width: 991px) {
-    .listanav {
-        margin: auto;
-        width: 100%;
-    }
-
-    .nav-link {
-        text-align: center;
-    }
-
-
-    .nav-div {
-        display: flex !important;
-    }
-
-    #nav-brand {
-        order: 1 !important;
-    }
-
-    #icon-github {
-        order: 2 !important;
-    }
-
-    #nav-btn {
-        order: 3 !important;
-    }
-
-    #navbarNavAltMarkup {
-        order: 4;
-    }
-
-    .aboutme-container {
-        display: grid !important;
-        grid-template-areas:
-            'nombre'
-            'details'
-            'mainimg'
-            'cv' !important;
-        gap: 10px;
-    }
-
-    #mainlogo {
-        border: 1px solid white;
-        width: 55% !important;
-        margin: auto !important;
-    }
-
-    .logospan {
-        display: flex;
-        width: fit-content !important;
-    }
-
-    span.name {
-        font-size: 2em !important;
-    }
-
-}
-
 
 .nav-div a {
     color: rgba(240, 255, 255, 0.76);
@@ -344,8 +286,10 @@ form {
     }
 }
 
-#sendIconDiv{
-    border: 1px red solid;
+#sendBtnContainer{
+position: relative;
+max-width: 700px;
+margin: auto;
 }
 
 
@@ -353,14 +297,13 @@ form {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     position: absolute;
-    margin-top: 30px;
-    left: 70%;
-    /* animation:fa-beat 3s ease infinite; */
+    top: 18px;
+    left: 94%;
 }
 
 
 #btnSend:hover {
-filter:invert(100%);
+color: rgb(112, 168, 252);
 }
 
 @keyframes fa-beat {
@@ -400,3 +343,76 @@ filter:invert(100%);
   .advertencia{
     color: orange !important;
   }
+
+
+  @media (max-width: 991px) {
+    .listanav {
+        margin: auto;
+        width: 100%;
+    }
+
+    .nav-link {
+        text-align: center;
+    }
+
+
+    .nav-div {
+        display: flex !important;
+    }
+
+    #nav-brand {
+        order: 1 !important;
+    }
+
+    #icon-github {
+        order: 2 !important;
+    }
+
+    #nav-btn {
+        order: 3 !important;
+    }
+
+    #navbarNavAltMarkup {
+        order: 4;
+    }
+
+    .aboutme-container {
+        display: grid !important;
+        grid-template-areas:
+            'nombre'
+            'details'
+            'mainimg'
+            'cv' !important;
+        gap: 10px;
+    }
+
+    #mainlogo {
+        border: 1px solid white;
+        width: 55% !important;
+        margin: auto !important;
+    }
+
+    .logospan {
+        display: flex;
+        width: fit-content !important;
+    }
+
+    span.name {
+        font-size: 2em !important;
+    }
+
+}
+
+
+
+@media (max-width: 765px) {
+
+    #btnSend {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        position: absolute;
+        top: 18px;
+        left: 90%;
+    }
+    
+}
