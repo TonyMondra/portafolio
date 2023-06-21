@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio</title>
-    <script src="https://kit.fontawesome.com/cf965db842.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/cf965db842.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/terminal" rel="stylesheet">
+                
 </head>
 
 <body>
@@ -17,7 +19,7 @@
         <nav class="navbar navbar-expand-lg container">
             <div class="container-fluid nav-div">
 
-                <a class="navbar-brand" id="nav-brand" href="#">A.D</a>
+                <a class="navbar-brand" id="nav-brand" href="#">A.M</a>
 
                 <button id="nav-btn" class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -60,7 +62,6 @@
 
             <div class="cv-container">
                 <span class="cv">Portafolio</span>
-
                 <a href="http://" target=”_blank”>
                     <img src="/media/pdf2.png" class="cv" alt="">
                 </a>
@@ -80,6 +81,7 @@
 
         <div class="container" id="proyectos-container">
             <div id="carruselproyects" class="carousel slide">
+
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carruselproyects" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -88,7 +90,9 @@
                     <button type="button" data-bs-target="#carruselproyects" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
                 </div>
+
                 <div class="carousel-inner">
+
                     <div class="carousel-item active">
                         <img src="media/prueba.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-md-block">
@@ -112,8 +116,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
 
+                    <div class="carousel-item">
                         <img src="media/prueba.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-md-block">
                             <h5>proyectooo</h5>
@@ -124,6 +128,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carruselproyects"
@@ -162,21 +167,19 @@
 
             <div id="sendBtnContainer"></div>
 
-            <div id="contact-box">    
+            <div id="contact-box">
 
                 <div id="terminal-header">
 
                     <div id="term-dots-container">
                         <div id="sub-dot-container">
-                            <img src="/media/red.png"  class="term-dot" alt="">
+                            <img src="/media/red.png" class="term-dot" alt="">
                             <img src="/media/yellow.png" class="term-dot" alt="">
                             <img src="/media/green.png" class="term-dot" alt="">
-                        </div>    
+                        </div>
                     </div>
 
                     <span id="term-touch"> Get in Touch</span>
-                    
-                    
                 </div>
 
                 <span id="term-text">Hola!, rellene el formulario para contactarme</span>
@@ -189,7 +192,7 @@
                         <br>
                         <span class="emptyInput input1" id="spanUno">-></span>
                         <input type="text" required id="input1" maxlength="40" name="name" class="textBox">
-                        <div class="val-input" > </div>
+                        <div class="val-input"> </div>
                     </div>
 
                     <div class="fila-input">
@@ -210,29 +213,29 @@
                         </div>
                     </div>
 
-                    <div class="fila-input" >
+                    <div class="fila-input">
                         <label class="fila-input">Subject</label>
                         <br>
                         <span class="input4" id="spanCuatro">-></span>
                         <br>
-                        <textarea cols="20" rows="5" id="input4" required maxlength="500" name="msg" class="textBox">
-
-                        </textarea>
-                        <div class="val-input">
-                        </div>
+                        <textarea cols="20" rows="5" id="input4" required maxlength="500" name="msg" class="textBox"> </textarea>
+                        <div class="val-input"></div>
                     </div>
 
-                    
                     <div id="formResponse"> </div>
-                    
+
                 </form>
             </div>
         </div>
-        
-
-          
     </div>
- 
+
+    <footer>
+        <div id="footerContent">
+            <span>Hecho por yo merengues....</span>
+            <img src="media/dinoruning.gif" alt="" id="dinoRunning">
+        </div>
+    </footer>
+
 
 
 
@@ -242,7 +245,7 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script src="dinamics.js"></script>
-    <script type="text/javascript" src="dompurify/node_modules/dompurify/dist/purify.js"></script> 
+    <script type="text/javascript" src="dompurify/node_modules/dompurify/dist/purify.js"></script>
 </body>
 
 </html>
