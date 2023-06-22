@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Courier New', Courier, monospace !important;
-    font-weight:900;
+    font-weight: 900;
     padding: 0%;
     margin: 0%;
     min-width: 440px;
@@ -28,6 +28,7 @@ body {
     margin-left: auto;
     width: 50%;
     justify-content: space-around;
+    border: red solid 1px;
 }
 
 .nav-div a {
@@ -82,17 +83,25 @@ span.name {
     grid-area: details;
 }
 
-.cv-container {
+#cv-container {
     border: 1px solid white;
     margin-top: 50px;
     grid-area: cv;
-    display: flex;
-    justify-content: center;
+
+}
+
+span.cv {
+    text-align: center;
+    border: red 1px solid;
+    display: block !important;
 }
 
 img.cv {
-    width: 30px;
+    margin-top: 10px !important;
+    display: block !important;
+    width: 40px;
     filter: brightness(10000%);
+    margin: auto;
 }
 
 img.cv:hover {
@@ -140,6 +149,14 @@ img.cv:hover {
 #carruselproyects {
     margin: auto;
     width: 90%;
+}
+
+.carousel-caption {
+    background-color: black;
+}
+
+.carousel-control-next-icon{
+    background-color: rgba(0, 0, 0, 0.527) !important;
 }
 
 img.skill {
