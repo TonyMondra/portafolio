@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     const formulario = document.getElementById('formularioContacto');
-    let infoTerminal = document.getElementById('term-text');
+    let infoTerminal = document.getElementById('form-filling-status');
 
     const spans = [
         document.getElementById("spanUno"),
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 formulario.reset();
                 formulario.remove();
                 document.getElementById('btnSend').remove();
-                document.getElementById('term-text').remove();
+                document.getElementById('form-filling-status').remove();
                 const formContainer = document.getElementById('contact-box');
                 const formResponse = document.createElement('span');
                 formResponse.id = 'msgExito';
@@ -188,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     };
 
-
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 });

@@ -17,7 +17,7 @@
     <div id="nav-block" class="sticky-top">
 
         <nav class="navbar navbar-expand-lg container">
-            <div class="container-fluid nav-div">
+            <div class="container-fluid" id="nav-container">
 
                 <a class="navbar-brand" id="nav-brand" href="#">Antonio.M</a>
 
@@ -28,7 +28,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav listanav">
+                    <div class="navbar-nav" id="nav-list">
                         <a class="nav-link" href="#aboutme-block">About me</a>
                         <a class="nav-link" href="#proyectos-block">Proyects</a>
                         <a class="nav-link" href="#skills-block">Skills</a>
@@ -46,30 +46,30 @@
 
     <div id="aboutme-block">
 
-        <div class="aboutme-container container">
+        <div class="container" id="aboutme-container">
 
-            <div class="nombre-container">
-                <span class="name">Antonio Dinosseti</span>
+            <div id="info-div">
+                <span id="info-name">Antonio Dinosseti</span>
                 <br>
-                <span class="grado">Software Engineer</span>
+                <span id="info-grado">Software Engineer</span>
                 <br>
             </div>
 
-            <div id="detail-container">
+            <div id="detail-div">
                 <p class="details">Developing useful tools.</p>
                 <p class="details">Enhancing UX.</p>
             </div>
 
-            <div id="cv-container">
-                <span class="cv">Curriculum</span>
+            <div id="cv-div">
+                <span id="cv-header">Curriculum</span>
                 <a href="http://" target=”_blank”>
-                    <img src="/media/pdf2.png" class="cv" alt="">
+                    <img src="/media/pdf2.png" id="cv-img" alt="">
                 </a>
             </div>
 
-            <div id="main-img-container">
-                <span class="logospan">
-                    <img src="/media/dino.png" id="mainlogo" alt="">
+            <div id="mainlogo-div">
+                <span id="mainlogo-box">
+                    <img src="/media/dino.png" id="mainlogo-img" alt="">
                 </span>
             </div>
 
@@ -80,14 +80,14 @@
     <div id="proyectos-block">
 
         <div class="container" id="proyectos-container">
-            <div id="carruselproyects" class="carousel slide">
+            <div id="proyects-carrusel" class="carousel slide">
 
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carruselproyects" data-bs-slide-to="0" class="active"
+                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carruselproyects" data-bs-slide-to="1"
+                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carruselproyects" data-bs-slide-to="2"
+                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
                 </div>
 
@@ -131,12 +131,12 @@
 
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carruselproyects"
+                <button class="carousel-control-prev" type="button" data-bs-target="#proyects-carrusel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carruselproyects"
+                <button class="carousel-control-next" type="button" data-bs-target="#proyects-carrusel"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -148,14 +148,17 @@
 
 
     <div id="skills-block">
+        <div id="skillsText" class="container">
+            <span id="skillTextContent">Tecnologias con las que he desarrollado mis proyectos</span>
+        </div>
         <div class="skills-container container">
-            <div class="subcontain">
-                <img src="/media/css.png" alt="" class="skill">
-                <img src="/media/html.png" alt="" class="skill">
-                <img src="/media/js.png" alt="" class="skill">
-                <img src="/media/php.png" alt="" class="skill">
-                <img src="/media/sql.png" alt="" class="skill">
-                <img src="/media/git.png" alt="" class="skill">
+            <div id="skills-box">
+                <img src="/media/css.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="CSS">
+                <img src="/media/html.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="HTML">
+                <img src="/media/js.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="Javascript">
+                <img src="/media/php.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="PHP">
+                <img src="/media/sql.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="SQL database">
+                <img src="/media/git.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="GIT">
             </div>
         </div>
     </div>
@@ -171,52 +174,52 @@
 
                 <div id="terminal-header">
 
-                    <div id="term-dots-container">
-                        <div id="sub-dot-container">
+                    <div id="term-dots-box">
+                        <div id="term-dots-div">
                             <img src="/media/red.png" class="term-dot" alt="">
                             <img src="/media/yellow.png" class="term-dot" alt="">
                             <img src="/media/green.png" class="term-dot" alt="">
                         </div>
                     </div>
 
-                    <span id="term-touch"> Get in Touch</span>
+                    <span id="term-title"> Get in Touch</span>
                 </div>
 
-                <span id="term-text">Hola!, rellene el formulario para contactarme</span>
+                <span id="form-filling-status">Hola!, rellene el formulario para contactarme</span>
 
 
                 <form enctype="multipart/form-data" method="post" id="formularioContacto">
 
-                    <div class="fila-input">
-                        <label class="fila-input">Name</label>
+                    <div class="form-input-row">
+                        <label class="form-input-label">Name</label>
                         <br>
-                        <span class="emptyInput input1" id="spanUno">-></span>
+                        <span class="emptyInput input1 form-placeholder" id="spanUno">-></span>
                         <input type="text" required id="input1" maxlength="40" name="name" class="textBox">
                         <div class="val-input"> </div>
                     </div>
 
-                    <div class="fila-input">
-                        <label class="fila-input">Email</label>
+                    <div class="form-input-row">
+                        <label class="form-input-label">Email</label>
                         <br>
-                        <span class="input2" id="spanDos">-></span>
+                        <span class="input2 form-placeholder" id="spanDos">-></span>
                         <input type="text" required id="input2" maxlength="40" name="email" class="textBox">
                         <div class="val-input">
                         </div>
                     </div>
 
-                    <div class="fila-input">
-                        <label class="fila-input">Phone</label>
+                    <div class="form-input-row">
+                        <label class="form-input-label">Phone</label>
                         <br>
-                        <span class="input3" id="spanTres">-></span>
+                        <span class="input3 form-placeholder" id="spanTres">-></span>
                         <input type="text" id="input3" required maxlength="10" name="phone" class="textBox">
                         <div class="val-input">
                         </div>
                     </div>
 
-                    <div class="fila-input">
-                        <label class="fila-input">Subject</label>
+                    <div class="form-input-row">
+                        <label class="form-input-label">Subject</label>
                         <br>
-                        <span class="input4" id="spanCuatro">-></span>
+                        <span class="input4 form-placeholder" id="spanCuatro">-></span>
                         <br>
                         <textarea cols="20" rows="5" id="input4" required maxlength="500" name="msg" class="textBox"> </textarea>
                         <div class="val-input"></div>
