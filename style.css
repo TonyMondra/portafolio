@@ -10,6 +10,10 @@ body {
     background: linear-gradient(174deg, rgba(0, 0, 0, 1) 20%, rgba(21, 21, 55, 1) 40%, rgba(36, 36, 97, 1) 60%, rgba(103, 37, 209, 1) 90%);
 }
 
+html, body{
+    overflow-x: hidden !important;
+}
+
 #nav-block {
     background-color: rgb(41, 41, 70);
 }
