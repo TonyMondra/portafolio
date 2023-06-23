@@ -188,6 +188,20 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     };
 
+    function changeImageSrc() {
+        let image = document.getElementById("proyectoBook-img");
+      
+        if (window.innerWidth <= 991) {
+          image.src = "media/black.png"; // URL for small screens
+        } else {
+          image.src = "media/prueba.png"; // URL for large screens
+        }
+      }
+      
+
+      window.addEventListener("load", changeImageSrc);
+      window.addEventListener("resize", changeImageSrc);
+
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 

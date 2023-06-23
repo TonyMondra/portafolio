@@ -5,7 +5,7 @@ body {
     font-weight: 900;
     padding: 0%;
     margin: 0%;
-    min-width: 440px;
+    min-width: 400px !important;
     background: rgb(0, 0, 0);
     background: linear-gradient(174deg, rgba(0, 0, 0, 1) 20%, rgba(21, 21, 55, 1) 40%, rgba(36, 36, 97, 1) 60%, rgba(103, 37, 209, 1) 90%);
 }
@@ -69,7 +69,7 @@ body {
 
 #aboutme-container {
     border: 1px solid rgb(231, 19, 19);
-    width: 90% !important;
+    width: 100% !important;
     height: 100vh;
     margin: auto;
     padding-bottom: 100px;
@@ -142,18 +142,26 @@ body {
 #proyectos-block {
     height: 100vh;
     border: purple 1px solid;
+    display: flex;
+    justify-content: center !important;
+    align-content: center !important;
+    align-items: center !important;
 }
 
 #proyectos-container {
     margin: auto !important;
-    padding: 50px;
-    min-height: 700px;
-    display: flex;
+    
 }
 
 #proyects-carrusel {
+    margin: auto !important;
+    width: 100% !important;
+    border: white 1px solid;
+}
+
+img.w-100{
     margin: auto;
-    width: 90%;
+    width: 90% !important;
 }
 
 .carousel-caption {
@@ -195,17 +203,18 @@ body {
     padding: 50px;
     display: flex;
     border: rgb(102, 255, 0) 1px solid;
-    height: 100vh;
+    height: 700px;
 }
 
 #skills-box {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    border: rgb(255, 253, 254) 1px solid;
 }
 
 .skill-item-img {
-    width: 200px;
+    width: 200px !important;
     filter: opacity(80%);
     margin: 25px auto 25px auto;
     border: red solid 1px;
@@ -217,7 +226,6 @@ body {
 
 
 #contact-block {
-    min-width: 439px;
     padding-top: 70px;
     padding-bottom: 100px !important;
     min-height: 500px;
@@ -226,13 +234,11 @@ body {
 }
 
 #contact-box {
-    min-width: 300px;
     max-width: 700px;
     min-height: 500px !important;
     background-color: #000000ab;
     border: 1px solid white;
     margin: auto;
-    min-height: 300px;
     box-shadow: 14px 15px rgba(15, 14, 15, 0.171);
 }
 
@@ -406,6 +412,10 @@ footer {
 }
 
 @media (max-width: 991px) {
+
+    #aboutme-container{
+        width: 100vh;
+    }
     #nav-list {
         margin: auto;
         width: 100%;
@@ -414,7 +424,6 @@ footer {
     .nav-link {
         text-align: center;
     }
-
 
     #nav-container {
         display: flex !important;
@@ -459,6 +468,16 @@ footer {
 
     #info-name {
         font-size: 2em !important;
+    }
+
+    .skill-item-img {
+        width: 100px !important;
+    }
+
+    #proyects-carrusel {
+        margin: auto;
+        border: white 1px solid;
+        width: 80% !important;
     }
 
 }
