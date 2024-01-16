@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafoli</title>
+    <title>Portafolio</title>
     <script src="https://kit.fontawesome.com/cf965db842.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.cdnfonts.com/css/terminal" rel="stylesheet">
@@ -29,14 +29,14 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" id="nav-list">
-                        <a class="nav-link" href="#aboutme-block">About me</a>
-                        <a class="nav-link" href="#proyectos-block">Proyects</a>
-                        <a class="nav-link" href="#skills-block">Skills</a>
-                        <a class="nav-link" href="#contact-block">Contact</a>
+                        <a class="nav-link" href="#aboutme-block">Sobre mí</a>
+                        <a class="nav-link" href="#proyectos-block">Proyectos</a>
+                        <a class="nav-link" href="#skills-block">Habilidades</a>
+                        <a class="nav-link" href="#contact-block">Contacto</a>
                     </div>
                 </div>
 
-                <a href=""> <img src="media/github.svg" alt="" id="icon-github"></a>
+                <a href="https://github.com/TonyMondra" target="_blank"> <img src="media/github.svg" alt="" id="icon-github"></a>
 
             </div>
         </nav>
@@ -49,20 +49,20 @@
         <div class="container" id="aboutme-container">
 
             <div id="info-div">
-                <span id="info-name">Antonio Mondragon</span>
+                <span id="info-name">Antonio Mondragón</span>
                 <br>
-                <span id="info-grado">Software Engineer</span>
+                <span id="info-grado">Ingeniero de software</span>
                 <br>
             </div>
 
             <div id="detail-div">
-                <p class="details">Developing useful tools.</p>
-                <p class="details">Enhancing UX.</p>
+                <p class="details">Desarrollar herramientas útiles.</p>
+                <p class="details">Mejorar la experiencia de usuario.</p>
             </div>
 
             <div id="cv-div">
                 <span id="cv-header">Curriculum</span>
-                <a href="http://" target=”_blank”>
+                <a href="https://sciandraproyects.me/descargables/CV%20.pdf" target="_blank">
                     <img src="/media/pdf2.png" id="cv-img" alt="">
                 </a>
             </div>
@@ -79,7 +79,10 @@
 
     <div id="proyectos-block">
 
+            
+
         <div class="container" id="proyectos-container">
+            <h1 id="proyectos-header">Proyectos</h1>
             <div id="proyects-carrusel" class="carousel slide">
 
                 <div class="carousel-indicators">
@@ -87,44 +90,45 @@
                         aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
                 </div>
 
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img src="media/prueba.png" class="d-block w-100" alt="..." id="proyectoBook-img">
+                        
+                        <img src="media/cap_jumapan.png" class="d-block w-100" alt="...">
+
                         <div class="carousel-caption d-md-block">
-                            <h5>Primer proyecto</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
-                            <div>
-                                <a href="http://">github</a>
-                                <a href="http://">sitio</a>
+                            
+                            <a class="btn carousel-caption-header" data-bs-toggle="collapse" href="#demos" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <p> Archivo digital - Jumapam </p>
+                            </a>
+                        
+                            <div class="carousel-caption-content collapse" id="demos">
+                                <p class="carousel-descr">Sistema para la gestión de archivo de la Jumapam, desarrollado en C#. El propósito era migrar el actual archivo físico a un modelo digital. He colaborado en este proyecto como parte de mi servicio social.</p>
+                                
+                                <div> <a class="carousel-links" href="http://" target="_blank">Demo</a> </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="carousel-item">
-                        <img src="media/prueba.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                            <div>
-                                <a href="http://">github</a>
-                                <a href="http://">sitio</a>
-                            </div>
-                        </div>
-                    </div>
+                        
+                        <img src="media/cap_aurora.png" class="d-block w-100" alt="...">
 
-                    <div class="carousel-item">
-                        <img src="media/prueba.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-md-block">
-                            <h5>proyectooo</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                            <div>
-                                <a href="http://">github</a>
-                                <a href="http://">sitio</a>
+                            
+                            <a class="btn carousel-caption-header" data-bs-toggle="collapse" href="#demo" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <p> Aurora Sales</p>
+                            </a>
+                        
+                            <div class="carousel-caption-content collapse" id="demo">
+                                <p class="carousel-descr"> CRM dirigido al sector retail. Proyecto académico desarrollado en stack LAMP.</p>
+                            
+                                <div> 
+                                    <a class="carousel-links" href="http://" target="_blank">Demo</a> 
+                                    <a class="carousel-links" href="https://github.com/TonyMondra/aurora_sales" target="_blank">Github</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,7 +153,7 @@
 
     <div id="skills-block">
         <div id="skillsText" class="container">
-            <span id="skillTextContent">Tecnologias con las que he desarrollado mis proyectos</span>
+            <span id="skillTextContent">Tecnologías con las que he desarrollado mis proyectos.</span>
         </div>
         <div class="skills-container container">
             <div id="skills-box">
@@ -182,16 +186,16 @@
                         </div>
                     </div>
 
-                    <span id="term-title"> Get in Touch</span>
+                    <span id="term-title"> Contactame</span>
                 </div>
 
-                <span id="form-filling-status">Hola!, rellene el formulario para contactarme</span>
+                <span id="form-filling-status">Hola!, complete el formulario para contactarme.</span>
 
 
                 <form enctype="multipart/form-data" method="post" id="formularioContacto">
 
                     <div class="form-input-row">
-                        <label class="form-input-label">Name</label>
+                        <label class="form-input-label">Nombre</label>
                         <br>
                         <span class="emptyInput input1 form-placeholder" id="spanUno">-></span>
                         <input type="text" required id="input1" maxlength="40" name="name" class="textBox">
@@ -199,7 +203,7 @@
                     </div>
 
                     <div class="form-input-row">
-                        <label class="form-input-label">Email</label>
+                        <label class="form-input-label">Correo</label>
                         <br>
                         <span class="input2 form-placeholder" id="spanDos">-></span>
                         <input type="text" required id="input2" maxlength="40" name="email" class="textBox">
@@ -208,7 +212,7 @@
                     </div>
 
                     <div class="form-input-row">
-                        <label class="form-input-label">Phone</label>
+                        <label class="form-input-label">Teléfono</label>
                         <br>
                         <span class="input3 form-placeholder" id="spanTres">-></span>
                         <input type="text" id="input3" required maxlength="10" name="phone" class="textBox">
@@ -217,7 +221,7 @@
                     </div>
 
                     <div class="form-input-row">
-                        <label class="form-input-label">Subject</label>
+                        <label class="form-input-label">Asunto</label>
                         <br>
                         <span class="input4 form-placeholder" id="spanCuatro">-></span>
                         <br>

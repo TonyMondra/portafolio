@@ -18,7 +18,7 @@ html, body{
     background-color: rgb(41, 41, 70);
 }
 
-#icon-github {
+#icon-github,.carousel-collap {
     width: 40px;
 }
 
@@ -31,7 +31,7 @@ html, body{
     margin-left: auto;
     width: 50%;
     justify-content: space-around;
-    border: red solid 1px;
+    /* border: red solid 1px; */
 }
 
 #nav-container a {
@@ -68,11 +68,11 @@ html, body{
     color: rgb(253, 251, 248);
     margin-bottom: 0px;
     height: 100vh;
-    border: purple 1px solid;
+    /* border: purple 1px solid; */
 }
 
 #aboutme-container {
-    border: 1px solid rgb(231, 19, 19);
+    border: 1px solid rgba(244, 238, 238, 0.312);
     width: 100% !important;
     height: 100vh;
     margin: auto;
@@ -89,7 +89,7 @@ html, body{
 #info-div {
     padding-top: 40px;
     margin-bottom: 40px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     grid-area: nombre;
 }
 
@@ -97,13 +97,19 @@ html, body{
     font-size: 100px;
 }
 
+#info-grado{
+    color: rgb(86, 240, 192) !important;
+    font-size: 1.4em;
+}
+
+
 #detail-div {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     grid-area: details;
 }
 
 #mainlogo-div {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     grid-area: mainimg;
     display: flex;
     justify-content: center;
@@ -114,26 +120,26 @@ html, body{
 }
 
 #mainlogo-img {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     width: 100%;
 }
 
 #cv-div {
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.39);
     margin-top: 50px;
     grid-area: cv;
 }
 
 #cv-header {
     text-align: center;
-    border: red 1px solid;
+    /* border: red 1px solid; */
     display: block !important;
 }
 
 #cv-img {
     margin-top: 10px !important;
     display: block !important;
-    width: 40px;
+    width: 62px;
     filter: brightness(10000%);
     margin: auto;
 }
@@ -145,7 +151,7 @@ html, body{
 
 #proyectos-block {
     height: 100vh;
-    border: purple 1px solid;
+    /* border: purple 1px solid; */
     display: flex;
     justify-content: center !important;
     align-content: center !important;
@@ -153,23 +159,50 @@ html, body{
 }
 
 #proyectos-container {
-    margin: auto !important;
-    
+    margin: auto !important;   
+}
+
+#proyectos-header{
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 #proyects-carrusel {
     margin: auto !important;
     width: 100% !important;
-    border: white 1px solid;
+    /* border: rgb(218, 9, 9) 1px solid; */
 }
 
-img.w-100{
+img.w-100, iframe{
     margin: auto;
     width: 90% !important;
 }
 
 .carousel-caption {
-    background-color: black;
+    background-color: rgba(15, 10, 25, 0.63);
+}
+
+.carousel-caption-header{
+    color: rgb(244, 232, 232) !important;
+}
+
+.carousel-caption-header:hover{
+    color: rgba(93, 244, 151, 0.901) !important;
+}
+
+.carousel-links{
+    color: #ffee08;
+    text-decoration: none;
+}
+
+.carousel-links:hover{
+    color: rgb(78, 247, 143) !important;
+}
+
+p.carousel-descr{
+    text-align: justify;
+    padding: 10px;
 }
 
 .carousel-control-next-icon{
@@ -184,19 +217,19 @@ img.w-100{
 #skills-block {
     color: white;
     min-height: 500px;
-    border: red 1px solid;
+    /* border: red 1px solid; */
     height: fit-content;
 }
 
 #skillsText{
     margin-top: 100px;
-    border: red 1px solid;
+    /* border: red 1px solid; */
     display: flex;
     font-size: xx-large;
 }
 
 #skillTextContent{
-    border: rgb(247, 244, 244) 1px solid;
+    /* border: rgb(247, 244, 244) 1px solid; */
     width: fit-content;
     margin: auto !important;
     text-align: center;
@@ -206,7 +239,7 @@ img.w-100{
     margin: auto !important;
     padding: 50px;
     display: flex;
-    border: rgb(102, 255, 0) 1px solid;
+    border: rgba(102, 255, 0, 0.392) 1px solid;
     height: 700px;
 }
 
@@ -214,14 +247,14 @@ img.w-100{
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    border: rgb(255, 253, 254) 1px solid;
+    /* border: rgb(255, 253, 254) 1px solid; */
 }
 
 .skill-item-img {
     width: 200px !important;
     filter: opacity(80%);
     margin: 25px auto 25px auto;
-    border: red solid 1px;
+    /* border: red solid 1px; */
 }
 
 .skill-item-img:hover {
@@ -282,12 +315,10 @@ img.w-100{
     text-align: justify;
 }
 
-
 form {
     padding-top: 29px;
     margin-left: 25px;
 }
-
 
 .form-input-row {
     margin-bottom: 10px;
@@ -297,7 +328,6 @@ form {
     margin-right: 50px !important;
     margin-left: 20px;
 }
-
 
 input[type=text],
 textarea {
@@ -322,7 +352,6 @@ textarea {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-
 
 .emptyInput {
     color: rgb(243, 247, 245);
@@ -474,6 +503,7 @@ footer {
         font-size: 2em !important;
     }
 
+    
     .skill-item-img {
         width: 100px !important;
     }
@@ -481,9 +511,10 @@ footer {
     #proyects-carrusel {
         margin: auto;
         border: white 1px solid;
-        width: 80% !important;
+        width: 90% !important;
     }
 
+    
 }
 
 
@@ -496,6 +527,12 @@ footer {
         position: absolute;
         top: 18px;
         left: 90%;
+    }
+
+    #proyects-carrusel {
+        margin: auto;
+        border: white 1px solid;
+        width: 100% !important;
     }
 
 }
