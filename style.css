@@ -68,6 +68,8 @@ html, body{
     color: rgb(253, 251, 248);
     margin-bottom: 0px;
     height: 100vh;
+    min-height: 1000px;
+
     /* border: purple 1px solid; */
 }
 
@@ -156,6 +158,8 @@ html, body{
     justify-content: center !important;
     align-content: center !important;
     align-items: center !important;
+    margin-bottom: 40px;
+    min-height: 1000px;
 }
 
 #proyectos-container {
@@ -166,6 +170,7 @@ html, body{
     color: white;
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 100px;
 }
 
 #proyects-carrusel {
@@ -174,7 +179,7 @@ html, body{
     /* border: rgb(218, 9, 9) 1px solid; */
 }
 
-img.w-100, iframe{
+img.w-100{
     margin: auto;
     width: 90% !important;
 }
@@ -434,6 +439,7 @@ footer {
 }
 
 
+
 @keyframes slideBanner {
     0% {
         left: 0%;
@@ -448,6 +454,7 @@ footer {
 
     #aboutme-container{
         width: 100vh;
+        min-height: 1000px;
     }
     #nav-list {
         margin: auto;
@@ -510,10 +517,15 @@ footer {
 
     #proyects-carrusel {
         margin: auto;
-        border: white 1px solid;
+        /* border: white 1px solid; */
         width: 90% !important;
     }
 
+    img.w-100{
+        margin: auto;
+        width: 370px !important;
+    }
+    
     
 }
 
@@ -531,7 +543,7 @@ footer {
 
     #proyects-carrusel {
         margin: auto;
-        border: white 1px solid;
+        /* border: white 1px solid; */
         width: 100% !important;
     }
 
