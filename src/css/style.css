@@ -10,7 +10,8 @@ body {
     background: linear-gradient(174deg, rgba(0, 0, 0, 1) 20%, rgba(21, 21, 55, 1) 40%, rgba(36, 36, 97, 1) 60%, rgba(103, 37, 209, 1) 90%);
 }
 
-html, body{
+html,
+body {
     overflow-x: hidden !important;
 }
 
@@ -18,7 +19,12 @@ html, body{
     background-color: rgb(41, 41, 70);
 }
 
-#icon-github,.carousel-collap {
+#div-gh-icon {
+    width: auto;
+}
+
+#icon-github,
+.carousel-collap {
     width: 40px;
 }
 
@@ -53,7 +59,7 @@ html, body{
 .navbar-toggler {
     text-decoration: none;
     outline: 0;
-    background-color: rgb(41, 41, 70)!important;
+    background-color: rgb(41, 41, 70) !important;
 }
 
 .navbar-toggler:focus {
@@ -99,7 +105,7 @@ html, body{
     font-size: 100px;
 }
 
-#info-grado{
+#info-grado {
     color: rgb(86, 240, 192) !important;
     font-size: 1.4em;
 }
@@ -163,10 +169,10 @@ html, body{
 }
 
 #proyectos-container {
-    margin: auto !important;   
+    margin: auto !important;
 }
 
-#proyectos-header{
+#proyectos-header {
     color: white;
     text-align: center;
     margin-bottom: 40px;
@@ -179,7 +185,7 @@ html, body{
     /* border: rgb(218, 9, 9) 1px solid; */
 }
 
-img.w-100{
+img.w-100 {
     margin: auto;
     width: 90% !important;
 }
@@ -188,33 +194,33 @@ img.w-100{
     background-color: rgba(15, 10, 25, 0.63);
 }
 
-.carousel-caption-header{
+.carousel-caption-header {
     color: rgb(244, 232, 232) !important;
 }
 
-.carousel-caption-header:hover{
+.carousel-caption-header:hover {
     color: rgba(93, 244, 151, 0.901) !important;
 }
 
-.carousel-links{
+.carousel-links {
     color: #ffee08;
     text-decoration: none;
 }
 
-.carousel-links:hover{
+.carousel-links:hover {
     color: rgb(78, 247, 143) !important;
 }
 
-p.carousel-descr{
+p.carousel-descr {
     text-align: justify;
     padding: 10px;
 }
 
-.carousel-control-next-icon{
+.carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.527) !important;
 }
 
-.carousel-control-prev-icon{
+.carousel-control-prev-icon {
     background-color: rgba(0, 0, 0, 0.527) !important;
 }
 
@@ -226,14 +232,14 @@ p.carousel-descr{
     height: fit-content;
 }
 
-#skillsText{
+#skillsText {
     margin-top: 100px;
     /* border: red 1px solid; */
     display: flex;
     font-size: xx-large;
 }
 
-#skillTextContent{
+#skillTextContent {
     /* border: rgb(247, 244, 244) 1px solid; */
     width: fit-content;
     margin: auto !important;
@@ -452,10 +458,11 @@ footer {
 
 @media (max-width: 991px) {
 
-    #aboutme-container{
+    #aboutme-container {
         width: 100vh;
         min-height: 1000px;
     }
+
     #nav-list {
         margin: auto;
         width: 100%;
@@ -463,6 +470,8 @@ footer {
 
     .nav-link {
         text-align: center;
+        padding: 4px;
+        margin: 4px;
     }
 
     #nav-container {
@@ -471,6 +480,9 @@ footer {
 
     #nav-brand {
         order: 1 !important;
+        text-align: center;
+        padding: 0px !important;
+        margin: 0px !important;
     }
 
     #icon-github {
@@ -499,7 +511,7 @@ footer {
         display: flex;
         width: fit-content !important;
     }
-    
+
     #mainlogo-img {
         border: 1px solid white;
         width: 55% !important;
@@ -510,23 +522,35 @@ footer {
         font-size: 2em !important;
     }
 
-    
+
     .skill-item-img {
         width: 100px !important;
     }
 
     #proyects-carrusel {
-        margin: auto;
+        margin: auto !important;
         /* border: white 1px solid; */
-        width: 90% !important;
+        width: 80% !important;
     }
 
-    img.w-100{
+    img.w-100 {
         margin: auto;
         width: 370px !important;
     }
-    
-    
+
+    .carousel-caption {
+        background-color: rgb(15, 10, 25);
+    }
+
+    .carousel-caption-header {
+        color: rgb(244, 232, 232) !important;
+    }
+
+    .carousel-caption-header:hover {
+        color: rgb(93, 244, 151) !important;
+    }
+
+  
 }
 
 

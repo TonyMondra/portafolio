@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
     <title>Portafolio</title>
     <script src="https://kit.fontawesome.com/cf965db842.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../src/css/style.css">
@@ -36,8 +37,12 @@
                     </div>
                 </div>
 
-                <a href="https://github.com/TonyMondra" target="_blank"> <img src="assets/img/github.svg" alt=""
-                        id="icon-github"></a>
+                <div id="div-gh-icon">
+                    <a href="https://github.com/TonyMondra" target="_blank"> 
+                    <img src="assets/img/github.svg" alt="" id="icon-github"></a>
+                </div>
+
+
 
             </div>
         </nav>
@@ -91,32 +96,68 @@
                         aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
                 </div>
 
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
 
-                        <!-- <img src="media/cap_jumapan.png" class="d-block w-100" alt="..."> -->
                         <picture>
-                            <source srcset="media/cap-jumapan-vertical.png" media="(max-width: 991px)" class="vertical-img"/>
+                            <source srcset="assets/img/cap-jumapan-vertical.png" media="(max-width: 991px)"
+                                class="vertical-img" />
                             <img src="assets/img/cap_jumapan.png" class="d-block w-100" alt="example" />
                         </picture>
-                        
+
 
                         <div class="carousel-caption d-md-block">
 
-                            <a class="btn carousel-caption-header" data-bs-toggle="collapse" href="#demos" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
+                            <a class="btn carousel-caption-header" data-bs-toggle="collapse"
+                                href="#carousel-header-jumapam" role="button" aria-expanded="false"
+                                aria-controls="collapseExample">
                                 <p> Archivo digital - Jumapam </p>
                             </a>
 
-                            <div class="carousel-caption-content collapse" id="demos">
-                                <p class="carousel-descr">Sistema para la gestión de archivo de la Jumapam, desarrollado
-                                    en C#. El propósito era migrar el actual archivo físico a un modelo digital. He
-                                    colaborado en este proyecto como parte de mi servicio social.</p>
+                            <div class="carousel-caption-content collapse" id="carousel-header-jumapam">
+                                <p class="carousel-descr">Sistema para la gestión de archivo de la Junta municipal de
+                                    alcantarillado y agua potable de mazatlan (Jumapam).</p>
 
-                                <div> <a class="carousel-links" href="http://" target="_blank">Demo</a> </div>
+                                <div>
+                                    <a class="carousel-links" href="http://" target="_blank">Demo</a>
+                                    <a class="carousel-links" href="http://" target="_blank">Acerca</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item">
+
+                        <picture>
+                            <source srcset="assets/img/metrics-vertical.png" media="(max-width: 991px)"
+                                class="vertical-img" />
+                            <img src="assets/img/metrics_1980_2.png" class="d-block w-100" alt="example" />
+                        </picture>
+
+
+                        <div class="carousel-caption d-md-block">
+
+                            <a class="btn carousel-caption-header" data-bs-toggle="collapse"
+                                href="#carousel-header-largersoft" role="button" aria-expanded="false"
+                                aria-controls="collapseExample">
+                                <p> Herramienta de analítica - Lagersoft Games </Label> </p>
+                            </a>
+
+                            <div class="carousel-caption-content collapse" id="carousel-header-largersoft">
+                                <p class="carousel-descr">Herramienta de analítica de métricas </p>
+
+                                <div>
+                                    <a class="carousel-links" href="http://" target="_blank">Demo</a>
+                                    <a class="carousel-links" href="http://" target="_blank">Acerca</a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -124,28 +165,28 @@
                     <div class="carousel-item">
 
                         <picture>
-                            <source srcset="media/cap-aurora-vertical.png" media="(max-width: 991px)" class="vertical-img"/>
+                            <source srcset="assets/img/cap-aurora-vertical.png" media="(max-width: 991px)"
+                                class="vertical-img" />
                             <img src="assets/img/cap_aurora.png" class="d-block w-100" alt="example" />
                         </picture>
-                        
+
 
                         <div class="carousel-caption d-md-block">
 
-                            <a class="btn carousel-caption-header" data-bs-toggle="collapse" href="#demo" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
-                                <p> Aurora Sales</p>
+                            <a class="btn carousel-caption-header" data-bs-toggle="collapse"
+                                href="#carousel-header-largersoft" role="button" aria-expanded="false"
+                                aria-controls="collapseExample">
+                                <p> Aurora sales </Label> </p>
                             </a>
 
-                            <div class="carousel-caption-content collapse" id="demo">
-                                <p class="carousel-descr"> CRM dirigido al sector retail. Proyecto académico
-                                    desarrollado en stack LAMP.</p>
+                            <div class="carousel-caption-content collapse" id="carousel-header-largersoft">
+                                <p class="carousel-descr">Proyecto academico, es un acercamiento a un CRM </p>
 
                                 <div>
-                                    <a class="carousel-links" href="https://youtu.be/lN9LDwg_6Ko"
-                                        target="_blank">Demo</a>
-                                    <a class="carousel-links" href="https://github.com/TonyMondra/aurora_sales"
-                                        target="_blank">Github</a>
+                                    <a class="carousel-links" href="http://" target="_blank">Demo</a>
+                                    <a class="carousel-links" href="http://" target="_blank">Acerca</a>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -174,14 +215,18 @@
         </div>
         <div class="skills-container container">
             <div id="skills-box">
-                <img src="assets/img/css.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="CSS">
-                <img src="assets/img/html.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="HTML">
+                <img src="assets/img/css.png" alt="" class="skill-item-img" data-bs-toggle="tooltip"
+                    data-bs-title="CSS">
+                <img src="assets/img/html.png" alt="" class="skill-item-img" data-bs-toggle="tooltip"
+                    data-bs-title="HTML">
                 <img src="assets/img/js.png" alt="" class="skill-item-img" data-bs-toggle="tooltip"
                     data-bs-title="Javascript">
-                <img src="assets/img/php.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="PHP">
+                <img src="assets/img/php.png" alt="" class="skill-item-img" data-bs-toggle="tooltip"
+                    data-bs-title="PHP">
                 <img src="assets/img/sql.png" alt="" class="skill-item-img" data-bs-toggle="tooltip"
                     data-bs-title="SQL database">
-                <img src="assets/img/git.png" alt="" class="skill-item-img" data-bs-toggle="tooltip" data-bs-title="GIT">
+                <img src="assets/img/git.png" alt="" class="skill-item-img" data-bs-toggle="tooltip"
+                    data-bs-title="GIT">
             </div>
         </div>
     </div>
@@ -258,8 +303,8 @@
 
     <footer>
         <div id="footerContent">
-            <span>Hecho por yo merengues....</span>
-            <img src="media/dinoruning.gif" alt="" id="dinoRunning">
+            <span>By Me....</span>
+            <img src="assets/img/dinoruning.gif" alt="" id="dinoRunning">
         </div>
     </footer>
 
