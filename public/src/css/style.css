@@ -1,8 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/terminal');
 
 
-
-
 body {
     font-family: 'Courier New', Courier, monospace !important;
     font-weight: 900;
@@ -79,8 +77,6 @@ body {
     margin-bottom: 0px;
     height: auto;
     min-height: 1000px;
-
-    /* border: purple 1px solid; */
 }
 
 #aboutme-container {
@@ -137,7 +133,6 @@ body {
 }
 
 #cv-div {
-    border: 1px solid rgba(255, 255, 255, 0.39);
     margin-top: 50px;
     grid-area: cv;
 }
@@ -161,15 +156,12 @@ body {
 }
 
 #sobre-mi-block {
-
-    border: #ffee08 2px solid;
     height: auto;
-    /* min-height: 1000px; */
     padding-bottom: 50px
 }
 
 #sobre-mi-box {
-    border: red 2px solid;
+    border: 1px solid rgba(255, 255, 255, 0.39);
     height: auto;
 }
 
@@ -178,21 +170,22 @@ body {
     text-align: center;
     margin-bottom: 40px;
     margin-top: 100px;
+    font-size: clamp(2rem, 2vw, 4rem);
 }
 
 #sobre-mi-text {
+
     margin-bottom: 12px !important;
     text-align: justify;
     margin: auto;
     width: 70%;
     /* border: plum 2px solid; */
     color: white;
-    font-size: large;
+    font-size: clamp(1rem, 1.4vw, 1.5rem);
 }
 
 #proyectos-block {
     height: auto;
-    border: purple 1px solid;
     display: flex;
     justify-content: center !important;
     align-content: center !important;
@@ -203,6 +196,8 @@ body {
 
 #proyectos-container {
     margin: auto !important;
+    border: 1px solid rgba(255, 255, 255, 0.39);
+
 }
 
 #proyectos-header {
@@ -210,6 +205,7 @@ body {
     text-align: center;
     margin-bottom: 40px;
     margin-top: 100px;
+    font-size: clamp(2rem, 2vw, 4rem);
 }
 
 #proyects-carrusel {
@@ -279,13 +275,14 @@ p.carousel-descr {
     width: fit-content;
     margin: auto !important;
     text-align: center;
+    font-size: clamp(2rem, 2vw, 4rem);
 }
 
 .skills-container {
     margin: auto !important;
     padding: 50px;
     display: flex;
-    border: rgba(102, 255, 0, 0.392) 1px solid;
+    border: 1px solid rgba(149, 243, 232, 0.39);
     height: 700px;
 }
 
@@ -337,6 +334,8 @@ p.carousel-descr {
     display: grid;
     grid-template-areas: 'dots touch touch btnSend btnSend';
     margin-bottom: 10px;
+
+    border: plum 4px dotted;
 }
 
 
@@ -354,12 +353,22 @@ p.carousel-descr {
 
 #term-title {
     grid-area: touch;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+
+}
+
+#form-filling-status-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #form-filling-status {
     color: rgb(145, 255, 0);
-    margin-left: 25px !important;
-    text-align: justify;
+    text-align: center;
+    font-size: clamp(0.7rem, 0.8vw, 1rem);
+    width: fit-content;
+    
 }
 
 form {
@@ -369,6 +378,10 @@ form {
 
 .form-input-row {
     margin-bottom: 10px;
+}
+
+.form-input-label {
+    font-size: clamp(0.7rem, 0.8vw, 1rem);
 }
 
 .form-placeholder {
@@ -599,12 +612,38 @@ footer {
     }
 
     textarea {
-    margin-left: auto !important;
-    cursor: default !important;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
+        margin-left: auto !important;
+        cursor: default !important;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+
+    #term-dots-div {
+        visibility: hidden;
+    }
+
+    #term-dots-box {
+        display: none;
+    }
+
+    #terminal-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-template-areas: none;
+    }
+
+    #term-title {
+        text-align: center;
+        width: 100%;
+    }
+
+   #form-filling-status {
+        margin: 0 auto;
+        text-align: center;
+    }
 
 }
