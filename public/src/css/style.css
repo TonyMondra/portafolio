@@ -1,12 +1,16 @@
-@import url('https://fonts.cdnfonts.com/css/terminal');
+@font-face {
+    font-family: "Terminal";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../../assets/fonts/Terminal.woff") format("woff");
+    font-display: swap;
+}
 
-
-body {
+body,h1 {
     font-family: 'Courier New', Courier, monospace !important;
-    font-weight: 900;
+    font-weight: 500;
     padding: 0%;
     margin: 0%;
-    /* min-width: 370px !important;  */
     background: linear-gradient(174deg, rgba(0, 0, 0, 1) 20%, rgba(21, 21, 55, 1) 40%, rgba(36, 36, 97, 1) 60%, rgba(103, 37, 209, 1) 90%);
 }
 
@@ -39,7 +43,6 @@ body {
     margin-left: auto;
     width: 50%;
     justify-content: space-around;
-    /* border: red solid 1px; */
 }
 
 #nav-container a {
@@ -71,20 +74,19 @@ body {
     box-shadow: none !important;
 }
 
-#aboutme-block {
+#caratula-block {
     text-align: justify;
     color: rgb(253, 251, 248);
-    margin-bottom: 0px;
-    height: auto;
-    min-height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    min-height: 100svh;
 }
 
-#aboutme-container {
-    border: 1px solid rgba(244, 238, 238, 0.312);
-    width: 100% !important;
-    height: auto;
-    margin: auto;
-    padding-bottom: 100px;
+#caratula-container {
+    border: 1px solid rgba(247, 248, 242, 0.367);
+    width: 100%;
     display: grid;
     grid-template-areas:
         'nombre nombre nombre mainimg mainimg'
@@ -94,56 +96,53 @@ body {
     gap: 10px;
 }
 
-#info-div {
-    padding-top: 40px;
+#caratula-personal-info-seccion {
     margin-bottom: 40px;
     /* border: 1px solid white; */
     grid-area: nombre;
 }
 
-#info-name {
+#caratula-info-name {
     font-size: clamp(2rem, 8vw, 6rem);
 }
 
-#info-grado {
+#caratula-info-grado {
     color: rgb(86, 240, 192) !important;
     font-size: 1.4em;
 }
 
-
-#detail-div {
-    /* border: 1px solid white; */
+#caratula-cita-seccion {
     grid-area: details;
 }
 
-#mainlogo-div {
-    /* border: 1px solid white; */
+#caratula-logo-seccion {
     grid-area: mainimg;
     display: flex;
     justify-content: center;
+    min-height: 400px;
 }
 
-#mainlogo-box {
+#caratula-logo-box {
     margin: auto;
 }
 
-#mainlogo-img {
+#caratula-logo-img {
     /* border: 1px solid white; */
     width: 100%;
 }
 
-#cv-div {
+#caratula-cv-seccion {
     margin-top: 50px;
     grid-area: cv;
 }
 
-#cv-header {
+#caratula-cv-header {
     text-align: center;
     /* border: red 1px solid; */
     display: block !important;
 }
 
-#cv-img {
+#caratula-cv-img {
     margin-top: 10px !important;
     display: block !important;
     width: 62px;
@@ -151,67 +150,68 @@ body {
     margin: auto;
 }
 
-#cv-img:hover {
+#caratula-cv-img:hover {
     filter: brightness(100%);
 }
 
 #sobre-mi-block {
-    height: auto;
-    padding-bottom: 50px
+    border-top: 1px solid rgba(247, 248, 242, 0.367);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    min-height: 80svh;
 }
 
+/* #sobre-mi-container {} */
+
 #sobre-mi-box {
-    border: 1px solid rgba(255, 255, 255, 0.39);
-    height: auto;
+    display: flex;
+    justify-content: center;
 }
 
 #sobre-mi-header {
     color: white;
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 100px;
-    font-size: clamp(2rem, 2vw, 4rem);
+    font-size: clamp(1.5rem, 2vw, 4rem);
+    margin-bottom: 130px;
 }
 
 #sobre-mi-text {
-
-    margin-bottom: 12px !important;
     text-align: justify;
-    margin: auto;
-    width: 70%;
-    /* border: plum 2px solid; */
+    width: 80%;
     color: white;
     font-size: clamp(1rem, 1.4vw, 1.5rem);
 }
 
 #proyectos-block {
-    height: auto;
     display: flex;
-    justify-content: center !important;
-    align-content: center !important;
-    align-items: center !important;
-    margin-bottom: 40px;
-    min-height: 1000px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(247, 248, 242, 0.367);
+    margin-bottom: 50px;
+    min-height: 100svh;
 }
 
-#proyectos-container {
-    margin: auto !important;
-    border: 1px solid rgba(255, 255, 255, 0.39);
+/* #proyectos-container {border: 10px solid rgb(237, 249, 7);} */
 
+#proyectos-header-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 130px;
 }
 
-#proyectos-header {
-    color: white;
+#proyectos-header{
+    width: fit-content;
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 100px;
-    font-size: clamp(2rem, 2vw, 4rem);
+    font-size: clamp(1.5rem, 2vw, 4rem);
+    color: white;
 }
 
 #proyects-carrusel {
-    margin: auto !important;
-    width: 100% !important;
-    /* border: rgb(218, 9, 9) 1px solid; */
+    margin-bottom: 100px;
 }
 
 img.w-100 {
@@ -254,69 +254,68 @@ p.carousel-descr {
     background-color: rgba(0, 0, 0, 0.527) !important;
 }
 
-
-#skills-block {
+#stack-block {
     color: white;
-    height: auto;
-    min-height: 500px;
-    /* border: red 1px solid; */
-    height: fit-content;
-}
-
-#skillsText {
-    margin-top: 100px;
-    /* border: red 1px solid; */
+    border-top: 1px solid rgba(247, 248, 242, 0.367);
     display: flex;
-    font-size: clamp(1rem, 2vw, 4rem);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    min-height: 50svh;
 }
 
-#skillTextContent {
-    /* border: rgb(247, 244, 244) 1px solid; */
+/* #stack-container {border: 10px solid rgb(237, 249, 7);} */
+
+#stack-header-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 130px;
+}
+
+#stack-header {
     width: fit-content;
-    margin: auto !important;
     text-align: center;
-    font-size: clamp(2rem, 2vw, 4rem);
+    font-size: clamp(1.5rem, 2vw, 4rem);
 }
 
-.skills-container {
-    margin: auto !important;
-    padding: 50px;
+#stack-content-seccion {
     display: flex;
-    border: 1px solid rgba(149, 243, 232, 0.39);
-    height: 700px;
+    align-items: center;
+    justify-content: center;
+
 }
 
-#skills-box {
-    margin: auto;
+#stack-content-box {
     display: flex;
     flex-wrap: wrap;
-    /* border: rgb(255, 253, 254) 1px solid; */
 }
 
-.skill-item-img {
+.stack-item-img {
     width: 30%;
     max-width: 120px;
     filter: opacity(80%);
     margin: 25px auto 25px auto;
-    /* border: red solid 1px; */
 }
 
-.skill-item-img:hover {
+.stack-item-img:hover {
     filter: brightness(150%)
 }
 
-
 #contact-block {
-    padding-top: 70px;
-    padding-bottom: 100px !important;
-    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: rgb(248, 241, 241);
     font-weight: 600;
+    border-top: 1px solid rgba(247, 248, 242, 0.367);
+    min-height: 100svh;
 }
+
+/* #contact-container {border: 10px solid rgb(237, 249, 7);} */
 
 #contact-box {
     max-width: 700px;
-    min-height: 500px !important;
     background-color: #000000ab;
     border: 1px solid white;
     margin: auto;
@@ -334,8 +333,6 @@ p.carousel-descr {
     display: grid;
     grid-template-areas: 'dots touch touch btnSend btnSend';
     margin-bottom: 10px;
-
-    border: plum 4px dotted;
 }
 
 
@@ -357,7 +354,7 @@ p.carousel-descr {
 
 }
 
-#form-filling-status-block{
+#form-filling-status-block {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -368,7 +365,7 @@ p.carousel-descr {
     text-align: center;
     font-size: clamp(0.7rem, 0.8vw, 1rem);
     width: fit-content;
-    
+
 }
 
 form {
@@ -382,6 +379,7 @@ form {
 
 .form-input-label {
     font-size: clamp(0.7rem, 0.8vw, 1rem);
+    font-family: "terminal", monospace;
 }
 
 .form-placeholder {
@@ -507,9 +505,8 @@ footer {
 
 @media (max-width: 991px) {
 
-    #aboutme-container {
+    #caratula-container {
         width: 100%;
-        min-height: 1000px;
     }
 
     #nav-list {
@@ -546,7 +543,7 @@ footer {
         order: 4;
     }
 
-    #aboutme-container {
+    #caratula-container {
         display: grid !important;
         grid-template-areas:
             'nombre'
@@ -556,25 +553,24 @@ footer {
         gap: 10px;
     }
 
-    #mainlogo-box {
+    #caratula-logo-box {
         display: flex;
         width: fit-content !important;
     }
 
-    #mainlogo-img {
+    #caratula-logo-img {
         border: 1px solid white;
-        width: 55% !important;
+        width: 200px;
+        height: 200px;
         margin: auto !important;
     }
 
-    #info-name {
+    #caratula-info-name {
         font-size: 2em !important;
     }
 
-
     #proyects-carrusel {
         margin: auto !important;
-        /* border: white 1px solid; */
         width: 80% !important;
     }
 
@@ -641,7 +637,7 @@ footer {
         width: 100%;
     }
 
-   #form-filling-status {
+    #form-filling-status {
         margin: 0 auto;
         text-align: center;
     }
