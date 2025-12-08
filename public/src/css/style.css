@@ -6,7 +6,8 @@
     font-display: swap;
 }
 
-body,h1 {
+body,
+h1 {
     font-family: 'Courier New', Courier, monospace !important;
     font-weight: 500;
     padding: 0%;
@@ -85,7 +86,7 @@ body {
 }
 
 #caratula-container {
-    border: 1px solid rgba(247, 248, 242, 0.367);
+    /* border: 1px solid rgba(247, 248, 242, 0.367); */
     width: 100%;
     display: grid;
     grid-template-areas:
@@ -170,11 +171,20 @@ body {
     justify-content: center;
 }
 
+#sobre-mi-header-box {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: clamp(1rem, 5vw, 4rem);
+    margin-bottom: clamp(1rem, 5vw, 4rem);
+}
+
 #sobre-mi-header {
-    color: white;
+    width: fit-content;
     text-align: center;
     font-size: clamp(1.5rem, 2vw, 4rem);
-    margin-bottom: 130px;
+    color: white;
 }
 
 #sobre-mi-text {
@@ -200,10 +210,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 130px;
+    margin-top: clamp(1rem, 5vw, 4rem);
+    margin-bottom: clamp(1rem, 5vw, 4rem);
 }
 
-#proyectos-header{
+#proyectos-header {
     width: fit-content;
     text-align: center;
     font-size: clamp(1.5rem, 2vw, 4rem);
@@ -270,7 +281,8 @@ p.carousel-descr {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 130px;
+    margin-top: clamp(1rem, 5vw, 4rem);
+    margin-bottom: clamp(1rem, 5vw, 4rem);
 }
 
 #stack-header {
@@ -559,10 +571,9 @@ footer {
     }
 
     #caratula-logo-img {
-        border: 1px solid white;
         width: 200px;
         height: 200px;
-        margin: auto !important;
+
     }
 
     #caratula-info-name {
