@@ -375,7 +375,7 @@ p.carousel-descr {
 
 }
 
-#contact-form-box{
+#contact-form-box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -416,7 +416,7 @@ input[type=text]:focus {
 }
 
 textarea {
-    padding-inline: 10rem;
+    width: 100%;
     cursor: default !important;
     user-select: none;
     -moz-user-select: none;
@@ -646,11 +646,23 @@ footer {
 
 }
 
-html, body {
-  width: 100%;
-  max-width: 100%;
+
+
+@media (max-width: 340px) {
+
+
+    input{
+        width: 100% !important;
+    }
+
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
