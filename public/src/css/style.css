@@ -201,7 +201,7 @@ body {
     align-items: center;
     border-top: 1px solid rgba(247, 248, 242, 0.367);
     margin-bottom: 50px;
-    min-height: 100svh;
+    min-height: 80svh;
 }
 
 /* #proyectos-container {border: 10px solid rgb(237, 249, 7);} */
@@ -225,11 +225,6 @@ body {
     margin-bottom: 100px;
 }
 
-img.w-100 {
-    margin: auto;
-    width: 80% !important;
-    height: auto;
-}
 
 .carousel-caption {
     background-color: rgba(15, 10, 25, 0.63);
@@ -380,9 +375,15 @@ p.carousel-descr {
 
 }
 
+#contact-form-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
 form {
-    padding-top: 29px;
-    margin-left: 25px;
+    width: 80%;
 }
 
 .form-input-row {
@@ -415,7 +416,7 @@ input[type=text]:focus {
 }
 
 textarea {
-    margin-left: 100px !important;
+    padding-inline: 10rem;
     cursor: default !important;
     user-select: none;
     -moz-user-select: none;
@@ -580,10 +581,6 @@ footer {
         font-size: 2em !important;
     }
 
-    #proyects-carrusel {
-        margin: auto !important;
-        width: 80% !important;
-    }
 
     .carousel-caption {
         background-color: rgb(15, 10, 25);
@@ -610,12 +607,6 @@ footer {
         position: absolute;
         top: 18px;
         left: 90%;
-    }
-
-    #proyects-carrusel {
-        margin: auto;
-        /* border: white 1px solid; */
-        width: 100% !important;
     }
 
     textarea {
@@ -653,4 +644,13 @@ footer {
         text-align: center;
     }
 
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
