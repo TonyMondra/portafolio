@@ -378,6 +378,7 @@ p.carousel-descr {
     display: flex;
     align-items: center;
     justify-content: center;
+    align-content: center;
 }
 
 #form-filling-status {
@@ -385,7 +386,6 @@ p.carousel-descr {
     text-align: center;
     font-size: clamp(0.7rem, 0.8vw, 1rem);
     width: fit-content;
-
 }
 
 #contact-form-box {
@@ -653,7 +653,6 @@ footer {
     }
 
     #form-filling-status {
-        margin: 0 auto;
         text-align: center;
     }
 

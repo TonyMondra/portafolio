@@ -5,18 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
     let infoTerminal = document.getElementById('form-filling-status');
 
     const spans = [
-        document.getElementById("spanUno"),
-        document.getElementById("spanDos"),
-        document.getElementById("spanTres"),
-        document.getElementById("spanCuatro"),
+        document.getElementById("form-name-placeholder"),
+        document.getElementById("form-mail-placeholder"),
+        document.getElementById("form-phone-placeholder"),
+        document.getElementById("form-message-placeholder"),
     ]
 
 
     const inputs = [
-        document.getElementById("input1"),
-        document.getElementById("input2"),
-        document.getElementById("input3"),
-        document.getElementById('input4'),
+        document.getElementById("form-name-input"),
+        document.getElementById("form-mail-input"),
+        document.getElementById("form-phone-input"),
+        document.getElementById('form-message-input'),
     ];
 
     inputs.forEach((input) => {
@@ -39,21 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
         
 
         switch (inputId) {
-            case "input1":
+            case "form-name-input":
                 var regex = /^[a-zA-Z\s]{1,40}$/;
                 statusInput = 'no se permiten caracteres especiales!';
                 break;
-            case "input2":
+            case "form-mail-input":
                 var regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-                statusInput = 'ingrese una direccion valida!';
+                statusInput = 'ingrese una dirección valida!';
                 break;
-            case "input3":
+            case "form-phone-input":
                 var regex = /^\d{10}$/;
-                statusInput = 'el numero debe tener una longitud de 10 digitos!';
+                statusInput = 'el numero debe tener una longitud de 10 dígitos!';
                 break;
-            case "input4":
-                var regex = /^[a-zA-Z0-9@,$.\s]{100,500}$/;
-                statusInput = '100 caracteres min (letras, emails y numeros)!';
+            case "form-message-input":
+                var regex = /^[a-zA-Z0-9@,$.\s]{20,500}$/;
+                statusInput = 'letras, emails y números!';
                 break;
         }
 
@@ -91,14 +91,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function focusNext(inputId) {
         switch (inputId) {
-            case "input1":
-                document.getElementById("spanDos").classList.add("emptyInput");
+            case "form-name-input":
+                document.getElementById("form-mail-placeholder").classList.add("emptyInput");
                 break;
-            case "input2":
-                document.getElementById("spanTres").classList.add("emptyInput");
+            case "form-mail-input":
+                document.getElementById("form-phone-placeholder").classList.add("emptyInput");
                 break;
-            case "input3":
-                document.getElementById("spanCuatro").classList.add("emptyInput");
+            case "form-phone-input":
+                document.getElementById("form-message-placeholder").classList.add("emptyInput");
                 break;
         }
     }
