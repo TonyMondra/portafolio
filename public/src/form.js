@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("form-message-input"),
     ];
 
+    document.querySelectorAll(".carousel-caption-title").forEach(function (elem) {
+        elem.addEventListener("click", function () {
+            this.classList.remove("titulo-pulsante");
+        });
+    });
+
+
 
     /* ============================================================
        MAPA DE REGLAS
