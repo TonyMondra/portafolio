@@ -28,11 +28,18 @@ body {
 
 
 h1,
-p {
+h2,
+h3,
+p,
+header,
+dt,
+dd,
+li {
     font-family: 'Courier New', Courier, monospace !important;
     font-weight: 500;
     color: white;
 }
+
 
 
 #nav-block {
@@ -292,7 +299,7 @@ p.carousel-header-content {
     padding: 10px;
 }
 
-.carousel-links-box{
+.carousel-links-box {
     display: flex;
     justify-content: center;
     gap: 2vw;

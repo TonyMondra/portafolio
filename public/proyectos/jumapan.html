@@ -1,11 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archivo-Jumapan</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jumapam - caso de estudio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Preload CSS principal -->
+    <link rel="preload" href="../src/css/style.css" as="style">
+    <link rel="preload" href="../src/css/proyectos.css" as="style">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/proyectos.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
 </head>
+
 <body>
-    
+
+
+    <header>
+
+        <div id="nav-block">
+            <nav class="navbar navbar-expand-lg container sticky-top">
+                <div class="container-fluid" id="nav-container">
+
+                    <a class="navbar-brand" id="nav-brand" href="#">Antonio.M</a>
+
+                    <button id="nav-btn" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" id="nav-list">
+                            <a class="nav-link" href="#overview-seccion">Overview</a>
+                            <a class="nav-link" href="#caso-seccion">Caso</a>
+                            <a class="nav-link" href="#aportes-seccion">Aportes</a>
+                            <a class="nav-link" href="https://www.antoniomondragon.dev/">Home</a>
+                        </div>
+                    </div>
+
+                    <div id="div-gh-icon">
+                        <a href="https://github.com/TonyMondra" target="_blank">
+                            <img src="../assets/img/github.svg" alt="icono-github" id="icon-github"></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <main>
+
+
+        <section id="intro-seccion">
+
+            <h1 class="container container-title">
+                Caso de estudio
+            </h1>
+
+            <div class="container intro-container">
+
+                <h2 class="intro-company-name">
+                    JUMAPAM
+                </h2>
+
+                <div class="intro-company-about-box">
+                    <p class="intro-company-about-p">
+                        JUMAPAM es la institución pública responsable de los servicios de agua y saneamiento en
+                        Mazatlán, Sinaloa.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section id="overview-seccion">
+
+            <h1 class="container container-title">Vista rápida</h1>
+
+            <div class="container overview-container">
+
+                <div class="overview-details">
+                    <dl class="overview-details-bar">
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Nombre</dt>
+                            <dd class="overview-bar-description overview-bdt">Sistema de gestión de archivo </dd>
+
+                            <dt class="overview-bar-title">Rol</dt>
+                            <dd class="overview-bar-description overview-bdt">Desarrollador auxiliar </dd>
+                        </div>
+
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Plataforma</dt>
+                            <dd class="overview-bar-description">
+                                <div class="overview-bar-icon-wrapper">
+
+                                    <img src="../assets/img/Windows.svg" alt="windows" id="windows-icon-obi" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="Windows Desktop"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                </div>
+                            </dd>
+                        </div>
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Stack</dt>
+
+                            <dd class="overview-bar-description">
+
+                                <div class="overview-bar-icon-wrapper">
+
+                                    <img src="../assets/img/CSharp.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="C#"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+
+                                    <img src="../assets/img/SQL-db.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="SQL Database"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+
+                                    <img src="../assets/img/xaml.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="XAML (WPF)"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                </div>
+                            </dd>
+                        </div>
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Herramientas</dt>
+                            <dd class="overview-bar-description">
+                                <div class="overview-bar-icon-wrapper">
+                                    <img src="../assets/img/sql-server.png" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="Microsoft SQL Server Management"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+
+                                    <img src="../assets/img/visualstudio.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="Visual Studio Professional"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                </div>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <picture class="overview-picture">
+                    <source srcset="../assets/img/cap_jumapan.webp" media="(max-width: 991px)" class="vertical-img"
+                        loading="lazy" />
+                    <img src="../assets/img/cap_jumapan.webp" class="d-block w-100" alt="jumapan" loading="lazy" />
+                </picture>
+
+            </div>
+
+        </section>
+
+
+        <section id="caso-seccion">
+
+            <h1 class="container container-title">Caso</h1>
+
+            <div class="container caso-container">
+                <div class="caso-escenario-box">
+
+                    <h2>Escenario</h2>
+
+                    <div class="escenario-description-box">
+
+                        <p>
+                            Desarrollar un sistema que permita migrar el archivo físico de la JUMAPAM a una plataforma
+                            digital, manteniendo su estructura organizacional, para su almacenamiento y gestión.
+                        </p>
+
+                        <p>La aplicación debe contar con las siguientes capacidades:</p>
+
+                        <ul>
+                            <li>Gestionar usuarios y roles</li>
+                            <li>Cargar documentos digitalizados</li>
+                            <li>Buscar documentos mediante folio</li>
+                            <li>Filtrar documentos por criterios definidos</li>
+                            <li>Visualizar documentos almacenados</li>
+                            <li>Gestionar documentos dentro del sistema</li>
+                            <li>Gestionar contenedores del archivo (almacenes, estantes, etc.)</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="caso-solucion-box">
+
+                    <h2>
+                        Solución
+                    </h2>
+
+                    <p>Aplicación de escritorio para Windows, compuesta de una arquitectura por capas basada en modelo,
+                        vista y controlador. Las vistas se desarrolladas con WPF (XAML), la lógica mediante C#, y la
+                        base de datos administrada en Microsoft SQL Server. </p>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="aportes-seccion">
+
+            <h1 class="container container-title">Aportes</h1>
+
+            <div class="container aportes-container">
+
+
+                <div class="card">
+                    <img src="../assets/img/jumapan-main.webp" class="card-img-top aportes-card-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Archivo/Home</em></h5>
+
+                        <dl class="card-features-list">
+
+                            <dt class="card-feature-title">Características</dt>
+                            <dd class="card-text card-features-item">
+                                - Visualizar, eliminar y actualizar registros de documentos únicos.
+                            </dd>
+                            <dd class="card-text card-features-item">
+                                - Filtrar documentos por estatus, rango de fechas, origen y ubicación.
+                            </dd>
+
+                        </dl>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../assets/img/jumapan-alta.webp" class="card-img-top aportes-card-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Alta</em></h5>
+
+                        <dl class="card-features-list">
+
+                            <dt class="card-feature-title">Características</dt>
+                            <dd class="card-text card-features-item">
+                                - Cargar nuevos documentos en el sistema.
+                            </dd>
+
+                        </dl>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../assets/img/jumapan-asignacion.webp" class="card-img-top aportes-card-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Asignación</em></h5>
+
+                        <dl class="card-features-list">
+
+                            <dt class="card-feature-title">Características</dt>
+                            <dd class="card-text card-features-item">
+                                - Asignar documentos nuevos a un almacén especifico.
+                            </dd>
+                            <dd class="card-text card-features-item">
+                                - Reasignar documentos existentes a un almacén diferente.
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <img src="../assets/img/jumapan-almacen.webp" class="card-img-top aportes-card-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Almacenes</em></h5>
+
+                        <dl class="card-features-list">
+
+                            <dt class="card-feature-title">Características</dt>
+                            <dd class="card-text card-features-item">
+                                - Permite al administrador dar de alta nuevos almacenes dentro del archivo.
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+    <footer>
+        <div id="footerContent">
+            <span>By Me....</span>
+            <img src="../assets/img/dinoruning.gif" alt="" id="dinoRunning">
+        </div>
+    </footer>
+
+
+
+    <script src="../src/js/jumapan-d.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="../assets/libs/dompurify/node_modules/dompurify/dist/purify.js"></script>
+    <script src="https://kit.fontawesome.com/cf965db842.js" crossorigin="anonymous"></script>
+
 </body>
+
 </html>

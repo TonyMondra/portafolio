@@ -1,0 +1,216 @@
+h1,
+h2,
+h3,
+p,
+header,
+dt,
+dd,
+li {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 500;
+    color: white;
+}
+
+.container {
+    border: none;
+}
+
+.container-title {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    color: rgba(248, 232, 124, 0.816);
+}
+
+#intro-seccion {
+    border-top: none;
+}
+
+section {
+    margin-bottom: 50px;
+    border-top: rgba(232, 234, 234, 0.485) 1px solid;
+}
+
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.intro-company-about-p {
+    font-size: larger;
+}
+
+.overview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.overview-details-bar {
+    padding: 0.4rem;
+    display: flex;
+    row-gap: 2rem;
+    column-gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(180, 118, 238, 0.277);
+}
+
+.overview-bar-item {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 4rem;
+    flex: 1 1 8rem;
+
+}
+
+.overview-bar-title {
+    text-align: center;
+    color: rgb(203, 245, 151);
+}
+
+.overview-bdt {
+    font-size: 1em;
+}
+
+.overview-bar-description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.overview-bar-icon-wrapper {
+    width: 90%;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 4px;
+}
+
+
+.overview-bar-item-icon {
+    width: 23%;
+}
+
+
+.overview-bar-item-icon:hover {
+    filter: contrast(2);
+}
+
+.custom-tooltip {
+    --bs-tooltip-color: var(--bs-orange);
+}
+
+
+.caso-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+
+.aportes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+}
+
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, .04),
+        0 8px 24px rgba(0, 0, 0, .06);
+}
+
+
+
+.aportes-card-img {
+    width: 100%;
+}
+
+.card-body {
+    width: 100%;
+}
+
+
+.card-features-list {
+
+    width: 100%;
+}
+
+.card-title {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 550;
+    color: rgb(217, 248, 227);
+}
+
+.card-feature-title {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 700;
+    color: rgb(203, 245, 151);
+}
+
+
+@media (max-width: 1400px) {
+
+    .overview-bdt {
+        font-size: 0.7em;
+    }
+
+    .overview-bar-item-icon {
+        width: 28%;
+    }
+
+}
+
+
+@media (max-width: 990px) {
+
+    .overview-details-bar {
+        display: block;
+        row-gap: 0.5rem;
+        column-gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .overview-bdt {
+        font-size: 1em;
+    }
+
+    .overview-bar-item {
+       border: rgba(255, 255, 255, 0.25) 0.1em solid;
+
+    }
+
+    .overview-bar-item-icon {
+        width: 14%;
+    }
+
+    .caso-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
