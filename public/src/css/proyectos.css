@@ -1,0 +1,209 @@
+
+h1,
+h2,
+h3,
+p,
+header,
+dt,
+dd,
+li {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 500;
+    color: white;
+}
+
+
+.container {
+    border: rgb(234, 255, 0) 2px solid;
+
+}
+
+.container-title{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+section {
+    border: rgb(0, 255, 225) 2px solid;
+    margin-bottom: 50px;
+}
+
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.intro-company-about-p{
+    font-size: larger;
+}
+
+#overview-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+#overview-details-bar {
+    display: flex;
+    row-gap: 2rem;
+    column-gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: rgb(242, 9, 9) solid;
+    background-color: rgba(180, 118, 238, 0.277);
+
+}
+
+.overview-bar-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 4rem;
+    flex: 1 1 8rem;
+
+}
+
+.overview-bar-description {
+    border: rgb(244, 165, 8) solid 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+    gap: 4px;
+}
+
+
+
+.overview-bar-item-icon {
+
+    width: 24%;
+    border: black 4px solid;
+}
+
+
+
+
+.overview-bar-item-icon:hover {
+
+    /*     filter: brightness(2);
+    filter: invert(10); */
+
+    filter: contrast(2);
+
+}
+
+
+.custom-tooltip {
+    /*  --bs-tooltip-color: rgba(245, 167, 22, 0.99); */
+
+    --bs-tooltip-color: var(--bs-orange);
+}
+
+
+#caso-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+
+#aportes-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+}
+
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 35rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, .04),
+        0 8px 24px rgba(0, 0, 0, .06);
+}
+
+
+
+.aportes-card-img {
+    width: 100%;
+}
+
+.card-body {
+    width: 100%;
+}
+
+
+.card-features-list {
+  
+    width: 100%;
+}
+
+.card-title{
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 550;
+    color:  rgb(217, 248, 227);
+}
+
+.card-feature-title{
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 700;
+    color: rgb(248, 231, 116);
+}
+
+
+@media (max-width: 990px) {
+
+
+    /* #overview-details-bar {
+    
+    display: contents;
+    align-items: center;
+    column-gap: 1rem;
+    border: rgb(170, 0, 255) solid;
+
+}
+ */
+
+
+    #overview-details-bar {
+        display: block;
+        row-gap: 2rem;
+        column-gap: 1rem;
+        flex-wrap: wrap;
+        border: rgb(200, 255, 0) solid;
+    }
+
+
+    .overview-bar-item-icon {
+
+        width: 20%;
+        border: black 4px solid;
+    }
+
+    #caso-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+
+    .card {
+
+        width: 100%;
+
+    }
+
+}
