@@ -15,22 +15,13 @@ html {
 body {
 
     background: linear-gradient(174deg, rgba(0, 0, 0, 1) 20%, rgba(21, 21, 55, 1) 40%, rgba(36, 36, 97, 1) 60%, rgba(103, 37, 209, 1) 90%);
-}
 
-a.nav-link,
-.carousel-links,
-h1,
-h2,
-h3,
-p,
-header,
-dt,
-dd,
-li {
     font-family: 'Courier New', Courier, monospace !important;
     font-weight: 500;
     color: white;
 }
+
+
 
 .nav-logo-img {
     width: 4rem;
