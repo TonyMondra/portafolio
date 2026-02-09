@@ -154,35 +154,42 @@ li {
     padding: 1rem;
     border-radius: 20px;
     border: #a6f88faa solid 1px;
-    display: flex;
-    gap: 14px;
-    align-content: center;
-    justify-content: center;
+
+    display: inline-flex;
     align-items: center;
-}
-.caratula-cv-btn{
+    justify-content: center;
+    gap: 14px;
+
     text-decoration: none;
 }
 
-.caratula-cv-seccion-box:hover{
+
+.caratula-cv-btn {
+    text-decoration: none;
+}
+
+.caratula-cv-seccion-box:hover {
     background-color: #f6e720;
 }
 
-.caratula-cv-seccion-box:hover #caratula-cv-header {
+.caratula-cv-seccion-box:hover .caratula-cv-header {
     color: rgb(244, 65, 238);
 }
 
-.caratula-cv-seccion-box:hover #caratula-cv-img {
+.caratula-cv-seccion-box:hover .caratula-cv-img {
     filter: brightness(100%);
 }
 
-#caratula-cv-header {
+.caratula-cv-header {
+    font-size: 1em;
     text-align: center;
-    font-weight: 555;
+    font-weight: 560;
     color: rgb(185, 140, 239);
+    margin: 0;
+    line-height: 1;
 }
 
-#caratula-cv-img {
+.caratula-cv-img {
     width: 2rem;
     filter: brightness(10000%);
 }
