@@ -100,6 +100,9 @@ section {
     width: 23%;
 }
 
+.nav-logo-img:hover{
+    filter: contrast(2);
+}
 
 .overview-bar-item-icon:hover {
     filter: contrast(2);

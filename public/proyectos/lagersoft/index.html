@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Lagersoft - Caso de estudio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Preload CSS principal -->
+    <link rel="preload" href="../../src/css/style.css" as="style">
+    <link rel="preload" href="../../src/css/proyectos.css" as="style">
+    <link rel="stylesheet" href="../../src/css/style.css">
+    <link rel="stylesheet" href="../../src/css/proyectos.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png">
+
+</head>
+
+<body>
+
+
+    <header>
+        <div id="nav-block">
+            <nav class="navbar navbar-expand-lg container sticky-top">
+                <div class="container-fluid" id="nav-container">
+
+                    <a class="navbar-brand" id="nav-brand" href="https://www.antoniomondragon.dev/"><img
+                            src="../../assets/img/favicon.png" alt="icono" class="nav-logo-img"></a>
+
+                    <button id="nav-btn" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" id="nav-list">
+                            <a class="nav-link" href="#overview-seccion">Overview</a>
+                            <a class="nav-link" href="#caso-seccion">Caso</a>
+                            <a class="nav-link" href="#aportes-seccion">Aportes</a>
+                            <a class="nav-link" href="https://www.antoniomondragon.dev/">Home</a>
+                        </div>
+                    </div>
+
+                    <div id="div-gh-icon">
+                        <a href="https://github.com/TonyMondra" target="_blank">
+                            <img src="../../assets/img/icons/tools/github.svg" alt="icono-github" id="icon-github"></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <main>
+
+        <section id="intro-seccion">
+            <h1 class="container container-title">
+                Caso de estudio
+            </h1>
+
+            <div class="container intro-container">
+
+                <h2 class="intro-company-name">
+                    Lagersoft
+                </h2>
+                <div class="intro-company-about-box">
+                    <p class="intro-company-about-p">
+                        Compañía de desarrollo software enfocada en especializada en soluciones de al industria del
+                        entretenimiento, destacando casinos online.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="overview-seccion">
+
+            <h1 class="container container-title">Vista rápida</h1>
+
+            <div class="container overview-container">
+
+                <div class="overview-details">
+                    <dl class="overview-details-bar">
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Rol</dt>
+                            <dd class="overview-bar-description overview-bdt">Analista de desarrollo</dd>
+                        </div>
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Plataforma</dt>
+                            <dd class="overview-bar-description overview-bdt">Integración de APIs, automatización de
+                                despliegues</dd>
+                        </div>
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Stack</dt>
+
+                            <dd class="overview-bar-description">
+
+                                <div class="overview-bar-icon-wrapper">
+
+                                    <img src="../../assets/img/icons/lenguajes/golang.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="Golang"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+
+                                    <img src="../../assets/img/icons/tools/aws.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="AWS DynamoDB"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+
+                                </div>
+                            </dd>
+                        </div>
+
+                        <div class="overview-bar-item">
+                            <dt class="overview-bar-title">Herramientas</dt>
+                            <dd class="overview-bar-description">
+                                <div class="overview-bar-icon-wrapper">
+                                    <img src="../../assets/img/icons/tools/Postman.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="Postman"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+
+                                    <img src="../../assets/img/icons/tools/GitHub_Actions.svg" alt="" class="overview-bar-item-icon"
+                                        data-bs-toggle="tooltip" data-bs-title="Github Actions"
+                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                </div>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <picture class="overview-picture">
+                    <source srcset="../../assets/img/features/metrics-vertical.webp" media="(max-width: 991px)" class="vertical-img"
+                        loading="lazy" />
+                    <img src="../../assets/img/features/metrics_1980_2.webp" class="d-block w-100" alt="jumapan" loading="lazy" />
+                </picture>
+
+            </div>
+
+        </section>
+
+
+        <section id="caso-seccion">
+
+            <h1 class="container container-title">Caso</h1>
+
+            <div class="container caso-container">
+                <div class="caso-escenario-box">
+
+                    <h2>Escenario</h2>
+
+                    <div class="escenario-description-box">
+
+                        <p>
+                            Primero, la plataforma Freshchat generaba métricas relevantes sobre las interacciones en
+                            los distintos canales de
+                            atención, pero esta información no estaba estructurada ni disponible para su consumo
+                            interno.
+                        </p>
+                        <p>Se precisaba automatizar los siguientes procesos</p>
+
+                        <ul>
+                            <li>Consumo periódico de api de Freshchat</li>
+                            <li>Sanitizar determinada información de las repuestas</li>
+                            <li>Almacenar la información en una base de datos</li>
+                            <li>Servir la información para su consumo</li>
+                        </ul>
+
+
+                        <p>Segundo, el proceso de despliegue y monitoreo de releases en uno de los servidores de
+                            desarrollo no estaba completamente configurado. </p>
+
+                        <ul>
+                            <li>Monitorear las nuevas releases del repositorio</li>
+                            <li>Desplegar automáticamente los cambios en el servidor de pruebas</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="caso-solucion-box">
+
+                    <h2>
+                        Solución
+                    </h2>
+
+                    <p>Conjunto de automatizaciones, integradas a entorno de pruebas, orientadas a fortalecer los flujos de trabajo de desarrollo.</p>
+
+                    <p>Primero, se implementó un servicio en Go que consume la API de métricas de Freshchat. Este
+                        servicio procesa, abstrae y normaliza la información relevante, almacenándola en una tabla de
+                        DynamoDB para facilitar su consulta y reutilización por otros procesos internos.
+                    </p>
+
+                    <p>Segundo, se creó un webhook vinculado a un repositorio de GitHub que detecta eventos de
+                        release. Este webhook captura y expone información relevante como el usuario que generó el
+                        release, la fecha y los detalles de la publicación.</p>
+
+                    <p> Finalmente, se implementó un flujo de integración y despliegue continuo mediante GitHub Actions.
+                        Este pipeline permite que cada release aprobado despliegue automáticamente los cambios en el servidor de pruebas, reduciendo tiempos de entrega.</p>
+
+                </div>
+            </div>
+        </section>
+
+        
+
+    </main>
+
+
+    <footer>
+        <div id="footerContent">
+            <span>By Me....</span>
+            <img src="../../assets/img/dinoruning.gif" alt="" id="dinoRunning">
+        </div>
+    </footer>
+
+
+
+    <script src="../../src/js/jumapan-d.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="../../assets/libs/dompurify/node_modules/dompurify/dist/purify.js"></script>
+    <script src="https://kit.fontawesome.com/cf965db842.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
