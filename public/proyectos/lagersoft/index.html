@@ -25,31 +25,30 @@
 
 
     <header>
-        <div id="nav-block">
-            <nav class="navbar navbar-expand-lg container sticky-top">
-                <div class="container-fluid" id="nav-container">
+        <div class="nav-section">
+            <nav class="navbar navbar-expand-lg container">
+                <div class="container-fluid nav-container">
 
-                    <a class="navbar-brand" id="nav-brand" href="https://www.antoniomondragon.dev/"><img
-                            src="../../assets/img/favicon.png" alt="icono" class="nav-logo-img"></a>
+                    <a class="nav-main-logo-link" href="https://www.antoniomondragon.dev/"><img
+                            src="../../assets/img/favicon.png" alt="Logo principal" class="nav-main-logo-img"></a>
 
                     <button id="nav-btn" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        data-bs-target="#nav-links-container" aria-controls="nav-links-container" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon "></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav" id="nav-list">
-                            <a class="nav-link" href="#overview-seccion">Overview</a>
+                    <div class="collapse navbar-collapse" id="nav-links-container">
+                        <div class="navbar-nav nav-links-box">
+                            <a class="nav-link" href="#overview-seccion">Resumen</a>
                             <a class="nav-link" href="#caso-seccion">Caso</a>
-                            <a class="nav-link" href="#aportes-seccion">Aportes</a>
                             <a class="nav-link" href="https://www.antoniomondragon.dev/">Home</a>
                         </div>
                     </div>
 
-                    <div id="div-gh-icon">
+                    <div class="nav-github-icon-box">
                         <a href="https://github.com/TonyMondra" target="_blank">
-                            <img src="../../assets/img/icons/tools/github.svg" alt="icono-github" id="icon-github"></a>
+                            <img src="../../assets/img/icons/tools/github.svg" alt="icono-github" class="nav-github-icon-img"></a>
                     </div>
                 </div>
             </nav>
@@ -59,14 +58,12 @@
 
 
     <main>
-
-        <section id="intro-seccion">
+        <section id="intro-section">
             <h1 class="container container-title">
                 Caso de estudio
             </h1>
 
             <div class="container intro-container">
-
                 <h2 class="intro-company-name">
                     Lagersoft
                 </h2>
@@ -76,14 +73,13 @@
                         entretenimiento, destacando casinos online.
                     </p>
                 </div>
-
             </div>
         </section>
 
 
         <section id="overview-seccion">
 
-            <h1 class="container container-title">Vista rápida</h1>
+            <h1 class="container container-title">Resumen</h1>
 
             <div class="container overview-container">
 
@@ -147,17 +143,13 @@
                 </picture>
 
             </div>
-
         </section>
 
 
         <section id="caso-seccion">
-
             <h1 class="container container-title">Caso</h1>
-
             <div class="container caso-container">
                 <div class="caso-escenario-box">
-
                     <h2>Escenario</h2>
 
                     <div class="escenario-description-box">
@@ -177,7 +169,6 @@
                             <li>Servir la información para su consumo</li>
                         </ul>
 
-
                         <p>Segundo, el proceso de despliegue y monitoreo de releases en uno de los servidores de
                             desarrollo no estaba completamente configurado. </p>
 
@@ -185,7 +176,6 @@
                             <li>Monitorear las nuevas releases del repositorio</li>
                             <li>Desplegar automáticamente los cambios en el servidor de pruebas</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -215,18 +205,15 @@
             </div>
         </section>
 
-
-
     </main>
 
 
     <footer>
-        <div id="footerContent">
-            <span>By Me....</span>
-            <img src="../../assets/img/dinoruning.gif" alt="" id="dinoRunning">
+        <div class="footer-box">
+            <a href="https://github.com/TonyMondra" class="footer-author">@antonio-mondragon</a>
+            <img src="../../assets/img/dinoruning.gif" alt="dinosaurio corriendo" class="footer-gif-dino">
         </div>
     </footer>
-
 
 
     <script src="../../src/js/jumapan-d.js"></script>

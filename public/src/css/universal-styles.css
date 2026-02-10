@@ -6,16 +6,13 @@
     font-display: swap;
 }
 
-
 html {
     height: 100%;
     background-color: rgb(0, 0, 0);
 }
 
 body {
-
     background: linear-gradient(174deg, rgba(0, 0, 0, 1) 20%, rgba(21, 21, 55, 1) 40%, rgba(36, 36, 97, 1) 60%, rgba(103, 37, 209, 1) 90%);
-
     font-family: 'Courier New', Courier, monospace !important;
     font-weight: 500;
     color: white;
@@ -24,31 +21,24 @@ body {
 
 /* ############## NAVBAR ############## */
 
-#nav-block {
+.nav-section {
     background-color: rgb(41, 41, 70);
 }
 
-#nav-list {
+.nav-links-box {
     display: flex;
     margin-left: auto;
     width: 50%;
     justify-content: space-around;
 }
 
-#nav-container a {
+.nav-link {
     color: rgba(240, 255, 255, 0.76);
 }
 
-#nav-container a:hover {
+.nav-link:hover {
     color: rgb(240, 255, 255);
-}
-
-.navbar-toggler-icon {
-    background-color: rgba(255, 255, 255, 0.589);
-}
-
-.navbar-toggler-icon:hover {
-    background-color: rgb(248, 241, 241);
+    text-decoration: none;
 }
 
 .navbar-toggler {
@@ -64,23 +54,31 @@ body {
     box-shadow: none !important;
 }
 
-.nav-logo-img {
+.navbar-toggler-icon {
+    background-color: rgba(255, 255, 255, 0.589);
+}
+
+.navbar-toggler-icon:hover {
+    background-color: rgb(248, 241, 241);
+}
+
+.nav-main-logo-img {
     width: 4rem;
 }
 
-.nav-logo-img:hover {
+.nav-main-logo-img:hover {
     filter: contrast(2);
 }
 
-#div-gh-icon {
+.nav-github-icon-box {
     width: auto;
 }
 
-#icon-github {
-    width: 40px;
+.nav-github-icon-img {
+    width: 2.5rem;
 }
 
-#icon-github:hover {
+.nav-github-icon-img:hover {
     filter: invert(100%);
 }
 
@@ -94,7 +92,7 @@ footer {
     font-weight: bold;
 }
 
-#footerContent {
+.footer-box {
     position: absolute;
     top: 0;
     left: 100%;
@@ -102,7 +100,12 @@ footer {
     animation: slideBanner 50s linear infinite;
 }
 
-#dinoRunning {
+.footer-author{
+    text-decoration: none;
+    color: rgb(195, 152, 241);
+}
+
+.footer-gif-dino {
     width: 30px;
 }
 
@@ -111,19 +114,18 @@ footer {
 
 @media (max-width: 991px) {
 
-
-    #nav-container {
+    .nav-container {
         display: flex !important;
     }
 
-    #nav-brand {
+    .nav-main-logo-link {
         order: 1 !important;
         text-align: center;
         padding: 0px !important;
         margin: 0px !important;
     }
 
-    #icon-github {
+    .nav-github-icon-img {
         order: 2 !important;
     }
 
@@ -131,11 +133,11 @@ footer {
         order: 3 !important;
     }
 
-    #navbarNavAltMarkup {
+    #nav-links-container {
         order: 4;
     }
 
-    #nav-list {
+    .nav-links-box {
         margin: auto;
         width: 100%;
     }
@@ -145,9 +147,7 @@ footer {
         padding: 4px;
         margin: 4px;
     }
-
 }
-
 
 @keyframes slideBanner {
     0% {
