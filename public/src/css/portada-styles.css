@@ -363,6 +363,7 @@ form {
 
 .form-input-label {
     font-size: clamp(0.7rem, 0.8vw, 1rem);
+    font-weight: 100;
     font-family: "terminal", monospace;
 }
 
