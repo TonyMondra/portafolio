@@ -11,10 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Preload CSS principal -->
-    <link rel="preload" href="../../src/css/style.css" as="style">
-    <link rel="preload" href="../../src/css/proyectos.css" as="style">
-    <link rel="stylesheet" href="../../src/css/style.css">
-    <link rel="stylesheet" href="../../src/css/proyectos.css">
+    <link rel="preload" href="../../src/css/universal-styles.css" as="universal-styles">
+    <link rel="preload" href="../../src/css/proyectos-styles.css" as="proyectos-styles">
+    <link rel="stylesheet" href="../../src/css/proyectos-styles.css">
+    <link rel="stylesheet" href="../../src/css/universal-styles.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png">
@@ -108,13 +108,14 @@
 
                                 <div class="overview-bar-icon-wrapper">
 
-                                    <img src="../../assets/img/icons/lenguajes/golang.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="Golang"
+                                    <img src="../../assets/img/icons/lenguajes/golang.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip" data-bs-title="Golang"
                                         data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
 
-                                    <img src="../../assets/img/icons/tools/aws.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="AWS DynamoDB"
-                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                    <img src="../../assets/img/icons/tools/aws.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip"
+                                        data-bs-title="AWS DynamoDB" data-bs-custom-class="custom-tooltip"
+                                        data-bs-placement="bottom">
 
                                 </div>
                             </dd>
@@ -124,13 +125,14 @@
                             <dt class="overview-bar-title">Herramientas</dt>
                             <dd class="overview-bar-description">
                                 <div class="overview-bar-icon-wrapper">
-                                    <img src="../../assets/img/icons/tools/Postman.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="Postman"
+                                    <img src="../../assets/img/icons/tools/Postman.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip" data-bs-title="Postman"
                                         data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
 
-                                    <img src="../../assets/img/icons/tools/GitHub_Actions.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="Github Actions"
-                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                    <img src="../../assets/img/icons/tools/GitHub_Actions.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip"
+                                        data-bs-title="Github Actions" data-bs-custom-class="custom-tooltip"
+                                        data-bs-placement="bottom">
                                 </div>
                             </dd>
                         </div>
@@ -138,9 +140,10 @@
                 </div>
 
                 <picture class="overview-picture">
-                    <source srcset="../../assets/img/features/metrics-vertical.webp" media="(max-width: 991px)" class="vertical-img"
+                    <source srcset="../../assets/img/features/metrics-vertical.webp" media="(max-width: 991px)"
+                        class="vertical-img" loading="lazy" />
+                    <img src="../../assets/img/features/metrics_1980_2.webp" class="d-block w-100" alt="jumapan"
                         loading="lazy" />
-                    <img src="../../assets/img/features/metrics_1980_2.webp" class="d-block w-100" alt="jumapan" loading="lazy" />
                 </picture>
 
             </div>
@@ -192,7 +195,8 @@
                         Solución
                     </h2>
 
-                    <p>Conjunto de automatizaciones, integradas a entorno de pruebas, orientadas a fortalecer los flujos de trabajo de desarrollo.</p>
+                    <p>Conjunto de automatizaciones, integradas a entorno de pruebas, orientadas a fortalecer los flujos
+                        de trabajo de desarrollo.</p>
 
                     <p>Primero, se implementó un servicio en Go que consume la API de métricas de Freshchat. Este
                         servicio procesa, abstrae y normaliza la información relevante, almacenándola en una tabla de
@@ -204,13 +208,14 @@
                         release, la fecha y los detalles de la publicación.</p>
 
                     <p> Finalmente, se implementó un flujo de integración y despliegue continuo mediante GitHub Actions.
-                        Este pipeline permite que cada release aprobado despliegue automáticamente los cambios en el servidor de pruebas, reduciendo tiempos de entrega.</p>
+                        Este pipeline permite que cada release aprobado despliegue automáticamente los cambios en el
+                        servidor de pruebas, reduciendo tiempos de entrega.</p>
 
                 </div>
             </div>
         </section>
 
-        
+
 
     </main>
 

@@ -11,10 +11,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Preload CSS principal -->
-    <link rel="preload" href="../../src/css/style.css" as="style">
-    <link rel="preload" href="../../src/css/proyectos.css" as="style">
-    <link rel="stylesheet" href="../../src/css/style.css">
-    <link rel="stylesheet" href="../../src/css/proyectos.css">
+    <link rel="preload" href="../../src/css/universal-styles.css" as="universal-styles">
+    <link rel="preload" href="../../src/css/proyectos-styles.css" as="proyectos-styles">
+    <link rel="stylesheet" href="../../src/css/proyectos-styles.css">
+    <link rel="stylesheet" href="../../src/css/universal-styles.css">
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png">
@@ -40,9 +41,9 @@
 
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav" id="nav-list">
-                            <a class="nav-link" href="#overview-seccion">Overview</a>
-                            <a class="nav-link" href="#caso-seccion">Caso</a>
-                            <a class="nav-link" href="#aportes-seccion">Aportes</a>
+                            <a class="nav-link" href="#overview-section">Overview</a>
+                            <a class="nav-link" href="#caso-section">Caso</a>
+                            <a class="nav-link" href="#aportes-section">Aportes</a>
                             <a class="nav-link" href="https://www.antoniomondragon.dev/">Home</a>
                         </div>
                     </div>
@@ -60,7 +61,7 @@
 
     <main>
 
-        <section id="intro-seccion">
+        <section id="intro-section">
             <h1 class="container container-title">
                 Caso de estudio
             </h1>
@@ -81,7 +82,7 @@
         </section>
 
 
-        <section id="overview-seccion">
+        <section id="overview-section">
 
             <h1 class="container container-title">Vista rápida</h1>
 
@@ -102,8 +103,8 @@
                             <dt class="overview-bar-title">Plataforma</dt>
                             <dd class="overview-bar-description">
                                 <div class="overview-bar-icon-wrapper">
-                                    <img src="../../assets/img/icons/tools/Windows.svg" alt="windows" id="windows-icon-obi"
-                                        class="overview-bar-item-icon" data-bs-toggle="tooltip"
+                                    <img src="../../assets/img/icons/tools/Windows.svg" alt="windows"
+                                        id="windows-icon-obi" class="overview-bar-item-icon" data-bs-toggle="tooltip"
                                         data-bs-title="Windows Desktop" data-bs-custom-class="custom-tooltip"
                                         data-bs-placement="bottom">
                                 </div>
@@ -117,17 +118,19 @@
 
                                 <div class="overview-bar-icon-wrapper">
 
-                                    <img src="../../assets/img/icons/lenguajes/CSharp.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="C#"
+                                    <img src="../../assets/img/icons/lenguajes/CSharp.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip" data-bs-title="C#"
                                         data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
 
-                                    <img src="../../assets/img/icons/lenguajes/SQL-db.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="SQL Database"
-                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                    <img src="../../assets/img/icons/lenguajes/SQL-db.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip"
+                                        data-bs-title="SQL Database" data-bs-custom-class="custom-tooltip"
+                                        data-bs-placement="bottom">
 
-                                    <img src="../../assets/img/icons/lenguajes/xaml.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="XAML (WPF)"
-                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                    <img src="../../assets/img/icons/lenguajes/xaml.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip"
+                                        data-bs-title="XAML (WPF)" data-bs-custom-class="custom-tooltip"
+                                        data-bs-placement="bottom">
                                 </div>
                             </dd>
                         </div>
@@ -136,13 +139,15 @@
                             <dt class="overview-bar-title">Herramientas</dt>
                             <dd class="overview-bar-description">
                                 <div class="overview-bar-icon-wrapper">
-                                    <img src="../../assets/img/icons/tools/sql-server.png" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="Microsoft SQL Server Management"
+                                    <img src="../../assets/img/icons/tools/sql-server.png" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip"
+                                        data-bs-title="Microsoft SQL Server Management"
                                         data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
 
-                                    <img src="../../assets/img/icons/tools/visualstudio.svg" alt="" class="overview-bar-item-icon"
-                                        data-bs-toggle="tooltip" data-bs-title="Visual Studio Professional"
-                                        data-bs-custom-class="custom-tooltip" data-bs-placement="bottom">
+                                    <img src="../../assets/img/icons/tools/visualstudio.svg" alt=""
+                                        class="overview-bar-item-icon" data-bs-toggle="tooltip"
+                                        data-bs-title="Visual Studio Professional" data-bs-custom-class="custom-tooltip"
+                                        data-bs-placement="bottom">
                                 </div>
                             </dd>
                         </div>
@@ -150,9 +155,10 @@
                 </div>
 
                 <picture class="overview-picture">
-                    <source srcset="../../assets/img/features/cap_jumapan.webp" media="(max-width: 991px)" class="vertical-img"
+                    <source srcset="../../assets/img/features/cap_jumapan.webp" media="(max-width: 991px)"
+                        class="vertical-img" loading="lazy" />
+                    <img src="../../assets/img/features/cap_jumapan.webp" class="d-block w-100" alt="jumapan"
                         loading="lazy" />
-                    <img src="../../assets/img/features/cap_jumapan.webp" class="d-block w-100" alt="jumapan" loading="lazy" />
                 </picture>
 
             </div>
@@ -160,7 +166,7 @@
         </section>
 
 
-        <section id="caso-seccion">
+        <section id="caso-section">
 
             <h1 class="container container-title">Caso</h1>
 
@@ -205,13 +211,14 @@
             </div>
         </section>
 
-        <section id="aportes-seccion">
+        <section id="aportes-section">
             <h1 class="container container-title">Aportes</h1>
 
             <div class="container aportes-container">
 
                 <div class="card">
-                    <img src="../../assets/img/features/jumapan-main.webp" class="card-img-top aportes-card-img" alt="...">
+                    <img src="../../assets/img/features/jumapan-main.webp" class="card-img-top aportes-card-img"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Archivo/Home</em></h5>
                         <dl class="card-features-list">
@@ -227,7 +234,8 @@
                 </div>
 
                 <div class="card">
-                    <img src="../../assets/img/features/jumapan-alta.webp" class="card-img-top aportes-card-img" alt="...">
+                    <img src="../../assets/img/features/jumapan-alta.webp" class="card-img-top aportes-card-img"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Alta</em></h5>
                         <dl class="card-features-list">
@@ -240,7 +248,8 @@
                 </div>
 
                 <div class="card">
-                    <img src="../../assets/img/features/jumapan-asignacion.webp" class="card-img-top aportes-card-img" alt="...">
+                    <img src="../../assets/img/features/jumapan-asignacion.webp" class="card-img-top aportes-card-img"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Asignación</em></h5>
                         <dl class="card-features-list">
@@ -256,7 +265,8 @@
                 </div>
 
                 <div class="card">
-                    <img src="../../assets/img/features/jumapan-almacen.webp" class="card-img-top aportes-card-img" alt="...">
+                    <img src="../../assets/img/features/jumapan-almacen.webp" class="card-img-top aportes-card-img"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Módulo e interfaz → <em class="card-module-em">Almacenes</em></h5>
 
