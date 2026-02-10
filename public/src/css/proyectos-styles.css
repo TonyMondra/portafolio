@@ -1,18 +1,10 @@
-h1,
-h2,
-h3,
-p,
-header,
-dt,
-dd,
-li {
-    font-family: 'Courier New', Courier, monospace !important;
-    font-weight: 500;
-    color: white;
-}
-
 .container {
     border: none;
+}
+
+section {
+    margin-bottom: 50px;
+    border-top: rgba(232, 234, 234, 0.485) 1px solid;
 }
 
 .container-title {
@@ -21,15 +13,9 @@ li {
     color: rgba(248, 232, 124, 0.816);
 }
 
-#intro-seccion {
+#intro-section {
     border-top: none;
 }
-
-section {
-    margin-bottom: 50px;
-    border-top: rgba(232, 234, 234, 0.485) 1px solid;
-}
-
 
 .intro-container {
     display: flex;
@@ -46,7 +32,6 @@ section {
     flex-direction: column;
     gap: 25px;
 }
-
 
 .overview-details-bar {
     padding: 0.4rem;
@@ -95,14 +80,10 @@ section {
     gap: 4px;
 }
 
-
 .overview-bar-item-icon {
     width: 23%;
 }
 
-.nav-logo-img:hover{
-    filter: contrast(2);
-}
 
 .overview-bar-item-icon:hover {
     filter: contrast(2);
@@ -112,13 +93,11 @@ section {
     --bs-tooltip-color: var(--bs-orange);
 }
 
-
 .caso-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
-
 
 .aportes-container {
     display: flex;
@@ -126,8 +105,6 @@ section {
     justify-content: center;
     gap: 4rem;
 }
-
-
 
 .card {
     display: flex;
@@ -143,8 +120,6 @@ section {
         0 8px 24px rgba(0, 0, 0, .06);
 }
 
-
-
 .aportes-card-img {
     width: 100%;
 }
@@ -153,9 +128,7 @@ section {
     width: 100%;
 }
 
-
 .card-features-list {
-
     width: 100%;
 }
 
@@ -169,6 +142,12 @@ section {
     font-family: 'Courier New', Courier, monospace !important;
     font-weight: 700;
     color: rgb(203, 245, 151);
+}
+
+.card-features-item {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 500;
+    color: white;
 }
 
 
@@ -199,7 +178,7 @@ section {
     }
 
     .overview-bar-item {
-       border: rgba(255, 255, 255, 0.25) 0.1em solid;
+        border: rgba(255, 255, 255, 0.25) 0.1em solid;
 
     }
 

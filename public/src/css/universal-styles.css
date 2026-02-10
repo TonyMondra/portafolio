@@ -1,0 +1,160 @@
+@font-face {
+    font-family: "Terminal";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../../assets/fonts/Terminal.woff") format("woff");
+    font-display: swap;
+}
+
+html {
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
+body {
+    background: linear-gradient(174deg, rgba(0, 0, 0, 1) 20%, rgba(21, 21, 55, 1) 40%, rgba(36, 36, 97, 1) 60%, rgba(103, 37, 209, 1) 90%);
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 500;
+    color: white;
+}
+
+
+/* ############## NAVBAR ############## */
+
+.nav-section {
+    background-color: rgb(41, 41, 70);
+}
+
+.nav-links-box {
+    display: flex;
+    margin-left: auto;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.nav-link {
+    color: rgba(240, 255, 255, 0.76);
+}
+
+.nav-link:hover {
+    color: rgb(240, 255, 255);
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    text-decoration: none;
+    outline: 0;
+    background-color: rgb(41, 41, 70) !important;
+}
+
+.navbar-toggler:focus {
+    border: none !important;
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    background-color: rgba(255, 255, 255, 0.589);
+}
+
+.navbar-toggler-icon:hover {
+    background-color: rgb(248, 241, 241);
+}
+
+.nav-main-logo-img {
+    width: 4rem;
+}
+
+.nav-main-logo-img:hover {
+    filter: contrast(2);
+}
+
+.nav-github-icon-box {
+    width: auto;
+}
+
+.nav-github-icon-img {
+    width: 2.5rem;
+}
+
+.nav-github-icon-img:hover {
+    filter: invert(100%);
+}
+
+/* ############## FOOTER ############## */
+footer {
+    background-color: black;
+    color: white;
+    position: relative;
+    height: 28px;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.footer-box {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    white-space: nowrap;
+    animation: slideBanner 50s linear infinite;
+}
+
+.footer-author{
+    text-decoration: none;
+    color: rgb(195, 152, 241);
+}
+
+.footer-gif-dino {
+    width: 30px;
+}
+
+
+/* ############## MEDIA QUERIES ############## */
+
+@media (max-width: 991px) {
+
+    .nav-container {
+        display: flex !important;
+    }
+
+    .nav-main-logo-link {
+        order: 1 !important;
+        text-align: center;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    .nav-github-icon-img {
+        order: 2 !important;
+    }
+
+    #nav-btn {
+        order: 3 !important;
+    }
+
+    #nav-links-container {
+        order: 4;
+    }
+
+    .nav-links-box {
+        margin: auto;
+        width: 100%;
+    }
+
+    .nav-link {
+        text-align: center;
+        padding: 4px;
+        margin: 4px;
+    }
+}
+
+@keyframes slideBanner {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
