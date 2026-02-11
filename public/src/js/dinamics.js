@@ -205,153 +205,79 @@ document.addEventListener('DOMContentLoaded', function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    // Apple-style Transform Slider for Projects
-    const proyectosBlock = document.getElementById('proyectos-block');
-    const sliderContainer = document.getElementById('proyects-carrusel');
-    const itemsContainer = sliderContainer ? sliderContainer.querySelector('.carousel-inner') : null;
-    const items = itemsContainer ? itemsContainer.querySelectorAll('.carousel-item') : [];
+    // Apple-style Transform Slider for Projects - SIMPLIFIED
+    console.log('Initializing projects slider...');
+    
+    const slider = document.querySelector('#proyects-carrusel .carousel-inner');
+    const slides = document.querySelectorAll('#proyects-carrusel .carousel-item');
     const prevBtn = document.getElementById('scroll-prev');
     const nextBtn = document.getElementById('scroll-next');
     
-    if (items.length > 0 && itemsContainer) {
-        let currentIndex = 0;
-        let isAnimating = false;
+    console.log('Slider found:', !!slider);
+    console.log('Slides found:', slides.length);
+    console.log('Prev button:', !!prevBtn);
+    console.log('Next button:', !!nextBtn);
+    
+    if (!slider || slides.length === 0) {
+        console.error('Slider elements not found!');
+    } else {
+        let currentSlide = 0;
+        const totalSlides = slides.length;
         
-        // Calcular ancho de item + gap
-        function getItemWidth() {
-            const item = items[0];
-            const style = window.getComputedStyle(item);
-            const width = item.offsetWidth;
+        // Get slide width including margins
+        function getSlideWidth() {
+            const slide = slides[0];
+            const style = window.getComputedStyle(slide);
+            const width = slide.offsetWidth;
             const marginLeft = parseInt(style.marginLeft) || 0;
             const marginRight = parseInt(style.marginRight) || 0;
             return width + marginLeft + marginRight;
         }
         
-        // Actualizar posición del slider
-        function updateSlider(animate = true) {
-            if (isAnimating && animate) return;
-            
-            const itemWidth = getItemWidth();
-            const offset = -currentIndex * itemWidth;
-            
-            itemsContainer.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)' : 'none';
-            itemsContainer.style.transform = `translateX(${offset}px)`;
-            
-            // Actualizar clases active
-            items.forEach((item, index) => {
-                item.classList.toggle('active', index === currentIndex);
-            });
-            
-            // Actualizar botones
-            if (prevBtn && nextBtn) {
-                prevBtn.style.opacity = currentIndex > 0 ? '0.9' : '0.3';
-                nextBtn.style.opacity = currentIndex < items.length - 1 ? '0.9' : '0.3';
-            }
-            
-            if (animate) {
-                isAnimating = true;
-                setTimeout(() => { isAnimating = false; }, 500);
-            }
-        }
-        
-        // Navegación
+        // Move to specific slide
         function goToSlide(index) {
-            currentIndex = Math.max(0, Math.min(index, items.length - 1));
-            updateSlider(true);
-        }
-        
-        function next() {
-            goToSlide(currentIndex + 1);
-        }
-        
-        function prev() {
-            goToSlide(currentIndex - 1);
-        }
-        
-        // Event listeners de botones
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                prev();
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            
+            currentSlide = index;
+            const slideWidth = getSlideWidth();
+            const offset = -currentSlide * slideWidth;
+            
+            slider.style.transform = `translateX(${offset}px)`;
+            slider.style.transition = 'transform 0.5s ease-out';
+            
+            // Update active class
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
             });
             
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                next();
-            });
+            // Update button opacity
+            if (prevBtn) prevBtn.style.opacity = currentSlide > 0 ? '0.9' : '0.3';
+            if (nextBtn) nextBtn.style.opacity = currentSlide < totalSlides - 1 ? '0.9' : '0.3';
+            
+            console.log('Moved to slide:', currentSlide, 'offset:', offset);
         }
         
-        // Touch/Swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        sliderContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        
-        sliderContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) next();
-                else prev();
-            }
-        }, { passive: true });
-        
-        // Scroll vertical convertido a navegación horizontal
-        let isInProyectosSection = false;
-        
-        function checkIfInView() {
-            if (!proyectosBlock) return;
-            const rect = proyectosBlock.getBoundingClientRect();
-            isInProyectosSection = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+        // Button handlers - DIRECT
+        if (prevBtn) {
+            prevBtn.onclick = function() {
+                console.log('Prev clicked');
+                goToSlide(currentSlide - 1);
+            };
         }
         
-        window.addEventListener('scroll', checkIfInView, { passive: true });
-        checkIfInView();
+        if (nextBtn) {
+            nextBtn.onclick = function() {
+                console.log('Next clicked');
+                goToSlide(currentSlide + 1);
+            };
+        }
         
-        let lastWheelTime = 0;
-        document.addEventListener('wheel', (e) => {
-            if (!isInProyectosSection) return;
-            
-            const now = Date.now();
-            if (now - lastWheelTime < 500) return; // Debounce
-            
-            const delta = e.deltaY;
-            
-            if (delta > 30 && currentIndex < items.length - 1) {
-                e.preventDefault();
-                next();
-                lastWheelTime = now;
-            } else if (delta < -30 && currentIndex > 0) {
-                e.preventDefault();
-                prev();
-                lastWheelTime = now;
-            }
-        }, { passive: false });
+        // Initialize first slide as active
+        slides[0].classList.add('active');
+        if (prevBtn) prevBtn.style.opacity = '0.3';
         
-        // Teclado
-        document.addEventListener('keydown', (e) => {
-            if (!isInProyectosSection) return;
-            
-            if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                next();
-            } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                prev();
-            }
-        });
-        
-        // Inicializar
-        items[0].classList.add('active');
-        updateSlider(false);
-        
-        // Recalcular en resize
-        window.addEventListener('resize', () => {
-            updateSlider(false);
-        });
+        console.log('Slider initialized with', totalSlides, 'slides');
     }
 
 });
