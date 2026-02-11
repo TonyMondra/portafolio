@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const totalSlides = slides.length;
         let dots = [];
         
-        // Get slide width including margins
+        // Get slide width including margins (except for last slide which has no right margin)
         function getSlideWidth() {
             const slide = slides[0];
             const style = window.getComputedStyle(slide);
@@ -222,6 +222,25 @@ document.addEventListener('DOMContentLoaded', function () {
             const marginLeft = parseInt(style.marginLeft) || 0;
             const marginRight = parseInt(style.marginRight) || 0;
             return width + marginLeft + marginRight;
+        }
+        
+        // Get total width for offset calculation
+        function getOffsetForSlide(index) {
+            let offset = 0;
+            for (let i = 0; i < index; i++) {
+                const slide = slides[i];
+                const style = window.getComputedStyle(slide);
+                const width = slide.offsetWidth;
+                const marginLeft = parseInt(style.marginLeft) || 0;
+                const marginRight = parseInt(style.marginRight) || 0;
+                offset += width + marginLeft + marginRight;
+            }
+            // Add margin-left of current slide
+            if (index < slides.length) {
+                const currentStyle = window.getComputedStyle(slides[index]);
+                offset += parseInt(currentStyle.marginLeft) || 0;
+            }
+            return -offset;
         }
         
         // Generate dots dynamically based on number of slides
@@ -262,8 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (index >= totalSlides) index = totalSlides - 1;
             
             currentSlide = index;
-            const slideWidth = getSlideWidth();
-            const offset = -currentSlide * slideWidth;
+            const offset = getOffsetForSlide(currentSlide);
             
             slider.style.transform = `translateX(${offset}px)`;
             slider.style.transition = 'transform 0.5s ease-out';
