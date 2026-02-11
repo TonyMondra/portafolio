@@ -205,73 +205,153 @@ document.addEventListener('DOMContentLoaded', function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    // Horizontal scroll with vertical wheel - Projects Section
+    // Apple-style Transform Slider for Projects
     const proyectosBlock = document.getElementById('proyectos-block');
-    const scrollContainer = document.getElementById('proyects-carrusel');
+    const sliderContainer = document.getElementById('proyects-carrusel');
+    const itemsContainer = sliderContainer ? sliderContainer.querySelector('.carousel-inner') : null;
+    const items = itemsContainer ? itemsContainer.querySelectorAll('.carousel-item') : [];
     const prevBtn = document.getElementById('scroll-prev');
     const nextBtn = document.getElementById('scroll-next');
     
-    if (proyectosBlock && scrollContainer) {
+    if (items.length > 0 && itemsContainer) {
+        let currentIndex = 0;
+        let isAnimating = false;
+        
+        // Calcular ancho de item + gap
+        function getItemWidth() {
+            const item = items[0];
+            const style = window.getComputedStyle(item);
+            const width = item.offsetWidth;
+            const marginLeft = parseInt(style.marginLeft) || 0;
+            const marginRight = parseInt(style.marginRight) || 0;
+            return width + marginLeft + marginRight;
+        }
+        
+        // Actualizar posición del slider
+        function updateSlider(animate = true) {
+            if (isAnimating && animate) return;
+            
+            const itemWidth = getItemWidth();
+            const offset = -currentIndex * itemWidth;
+            
+            itemsContainer.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)' : 'none';
+            itemsContainer.style.transform = `translateX(${offset}px)`;
+            
+            // Actualizar clases active
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === currentIndex);
+            });
+            
+            // Actualizar botones
+            if (prevBtn && nextBtn) {
+                prevBtn.style.opacity = currentIndex > 0 ? '0.9' : '0.3';
+                nextBtn.style.opacity = currentIndex < items.length - 1 ? '0.9' : '0.3';
+            }
+            
+            if (animate) {
+                isAnimating = true;
+                setTimeout(() => { isAnimating = false; }, 500);
+            }
+        }
+        
+        // Navegación
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, items.length - 1));
+            updateSlider(true);
+        }
+        
+        function next() {
+            goToSlide(currentIndex + 1);
+        }
+        
+        function prev() {
+            goToSlide(currentIndex - 1);
+        }
+        
+        // Event listeners de botones
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                prev();
+            });
+            
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                next();
+            });
+        }
+        
+        // Touch/Swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        sliderContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+        
+        // Scroll vertical convertido a navegación horizontal
         let isInProyectosSection = false;
         
-        // Simple check: is proyectos block visible in viewport?
         function checkIfInView() {
+            if (!proyectosBlock) return;
             const rect = proyectosBlock.getBoundingClientRect();
-            // Section is "active" when it's in the middle of viewport
             isInProyectosSection = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
         }
         
-        // Check on scroll
         window.addEventListener('scroll', checkIfInView, { passive: true });
-        // Check initially
         checkIfInView();
         
-        // Handle wheel events on the document
-        document.addEventListener('wheel', function(e) {
+        let lastWheelTime = 0;
+        document.addEventListener('wheel', (e) => {
             if (!isInProyectosSection) return;
             
-            const delta = e.deltaY;
-            const currentScroll = scrollContainer.scrollLeft;
-            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+            const now = Date.now();
+            if (now - lastWheelTime < 500) return; // Debounce
             
-            // If scrolling down and not at end of projects
-            if (delta > 0 && currentScroll < maxScroll - 10) {
+            const delta = e.deltaY;
+            
+            if (delta > 30 && currentIndex < items.length - 1) {
                 e.preventDefault();
-                e.stopPropagation();
-                scrollContainer.scrollLeft += delta * 1.5;
-            }
-            // If scrolling up and not at start of projects  
-            else if (delta < 0 && currentScroll > 10) {
+                next();
+                lastWheelTime = now;
+            } else if (delta < -30 && currentIndex > 0) {
                 e.preventDefault();
-                e.stopPropagation();
-                scrollContainer.scrollLeft += delta * 1.5;
+                prev();
+                lastWheelTime = now;
             }
-            // Otherwise allow normal page scroll
         }, { passive: false });
         
-        // Button click handlers
-        if (prevBtn && nextBtn) {
-            prevBtn.onclick = function(e) {
+        // Teclado
+        document.addEventListener('keydown', (e) => {
+            if (!isInProyectosSection) return;
+            
+            if (e.key === 'ArrowRight') {
                 e.preventDefault();
-                scrollContainer.scrollBy({ left: -window.innerWidth * 0.5, behavior: 'smooth' });
-            };
-            
-            nextBtn.onclick = function(e) {
+                next();
+            } else if (e.key === 'ArrowLeft') {
                 e.preventDefault();
-                scrollContainer.scrollBy({ left: window.innerWidth * 0.5, behavior: 'smooth' });
-            };
-            
-            // Update button visibility
-            scrollContainer.addEventListener('scroll', function() {
-                const scrollLeft = scrollContainer.scrollLeft;
-                const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-                
-                prevBtn.style.opacity = scrollLeft > 50 ? '0.9' : '0.3';
-                nextBtn.style.opacity = scrollLeft < maxScroll - 50 ? '0.9' : '0.3';
-            });
-            
-            prevBtn.style.opacity = '0.3';
-        }
+                prev();
+            }
+        });
+        
+        // Inicializar
+        items[0].classList.add('active');
+        updateSlider(false);
+        
+        // Recalcular en resize
+        window.addEventListener('resize', () => {
+            updateSlider(false);
+        });
     }
 
 });
