@@ -209,49 +209,140 @@ document.addEventListener('DOMContentLoaded', function () {
     
     if (!slider || slides.length === 0) {
         console.error('Slider elements not found!');
+    } else if (slides.length === 1) {
+        // Single slide - no loop needed
+        slides[0].classList.add('active');
+        console.log('Single slide carousel - no loop needed');
     } else {
-        let currentSlide = 0;
-        const totalSlides = slides.length;
+        const originalSlides = Array.from(slides);
+        const totalOriginalSlides = originalSlides.length;
         let dots = [];
+        let currentIndex = 0; // 0-based index for original slides
         
-        // Calculate offset for a specific slide
-        function getOffsetForSlide(index) {
-            let offset = 0;
-            
-            for (let i = 0; i < index; i++) {
-                const slide = slides[i];
-                const style = window.getComputedStyle(slide);
-                const width = slide.offsetWidth;
-                const marginLeft = parseInt(style.marginLeft) || 0;
-                const marginRight = parseInt(style.marginRight) || 0;
-                offset += width + marginLeft + marginRight;
-            }
-            
-            // Add the left margin of the target slide
-            if (index < slides.length) {
-                const targetStyle = window.getComputedStyle(slides[index]);
-                offset += parseInt(targetStyle.marginLeft) || 0;
-            }
-            
-            return -offset;
+        // Clone first and last slides for infinite loop effect
+        const firstSlideClone = originalSlides[0].cloneNode(true);
+        const lastSlideClone = originalSlides[totalOriginalSlides - 1].cloneNode(true);
+        
+        firstSlideClone.classList.add('clone');
+        lastSlideClone.classList.add('clone');
+        
+        // Add clones to DOM
+        slider.appendChild(firstSlideClone);
+        slider.insertBefore(lastSlideClone, originalSlides[0]);
+        
+        // Get all slides including clones
+        const allSlides = slider.querySelectorAll('.carousel-item');
+        
+        // Calculate slide width including margins
+        function getSlideWidth() {
+            const slide = allSlides[0];
+            const style = window.getComputedStyle(slide);
+            const width = slide.offsetWidth;
+            const marginLeft = parseInt(style.marginLeft) || 0;
+            const marginRight = parseInt(style.marginRight) || 0;
+            return width + marginLeft + marginRight;
         }
         
-        // Generate dots dynamically based on number of slides
+        // Calculate offset for infinite loop positioning
+        function calculateOffset(index) {
+            // index 0 = last clone, index 1 = first original, etc.
+            const slideWidth = getSlideWidth();
+            return -(index * slideWidth);
+        }
+        
+        // Update visual states
+        function updateVisualState(realIndex) {
+            // Update active class on original slides only
+            originalSlides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === realIndex);
+            });
+            
+            // Update dots
+            if (dots.length > 0) {
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === realIndex);
+                });
+            }
+        }
+        
+        // Move to slide with infinite loop logic
+        function goToSlide(targetRealIndex, animate = true) {
+            // Handle wrapping for the target
+            let newRealIndex = targetRealIndex;
+            if (newRealIndex < 0) newRealIndex = totalOriginalSlides - 1;
+            if (newRealIndex >= totalOriginalSlides) newRealIndex = 0;
+            
+            currentIndex = newRealIndex;
+            
+            // Calculate position (add 1 because of the clone at the beginning)
+            const positionIndex = currentIndex + 1;
+            const offset = calculateOffset(positionIndex);
+            
+            // Apply transform
+            slider.style.transition = animate ? 'transform 0.5s ease-out' : 'none';
+            slider.style.transform = `translateX(${offset}px)`;
+            
+            updateVisualState(currentIndex);
+            
+            console.log('Moved to slide:', currentIndex, 'position:', positionIndex, 'offset:', offset);
+        }
+        
+        // Navigate next
+        function next() {
+            const newIndex = currentIndex + 1;
+            
+            if (newIndex >= totalOriginalSlides) {
+                // Going to clone of first slide
+                currentIndex = 0;
+                const offset = calculateOffset(totalOriginalSlides + 1);
+                slider.style.transition = 'transform 0.5s ease-out';
+                slider.style.transform = `translateX(${offset}px)`;
+                updateVisualState(0);
+                
+                // After animation, jump to real first slide without animation
+                setTimeout(() => {
+                    slider.style.transition = 'none';
+                    slider.style.transform = `translateX(${calculateOffset(1)}px)`;
+                }, 500);
+            } else {
+                goToSlide(newIndex);
+            }
+        }
+        
+        // Navigate previous
+        function prev() {
+            const newIndex = currentIndex - 1;
+            
+            if (newIndex < 0) {
+                // Going to clone of last slide
+                currentIndex = totalOriginalSlides - 1;
+                const offset = calculateOffset(0);
+                slider.style.transition = 'transform 0.5s ease-out';
+                slider.style.transform = `translateX(${offset}px)`;
+                updateVisualState(totalOriginalSlides - 1);
+                
+                // After animation, jump to real last slide without animation
+                setTimeout(() => {
+                    slider.style.transition = 'none';
+                    slider.style.transform = `translateX(${calculateOffset(totalOriginalSlides)}px)`;
+                }, 500);
+            } else {
+                goToSlide(newIndex);
+            }
+        }
+        
+        // Generate dots
         function generateDots() {
             if (!dotsNav) return;
-            
-            // Clear existing dots
             dotsNav.innerHTML = '';
             dots = [];
             
-            // Create a dot for each slide
-            slides.forEach((slide, index) => {
+            originalSlides.forEach((_, index) => {
                 const dot = document.createElement('button');
                 dot.className = 'dot';
                 dot.setAttribute('data-slide', index);
                 dot.setAttribute('aria-label', `Proyecto ${index + 1}`);
                 dot.onclick = function() {
-                    console.log('Dot clicked:', index);
                     goToSlide(index);
                 };
                 dotsNav.appendChild(dot);
@@ -261,61 +352,30 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Generated', dots.length, 'dots');
         }
         
-        // Update dots navigation
-        function updateDots() {
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-        
-        // Move to specific slide
-        function goToSlide(index) {
-            if (index < 0) index = 0;
-            if (index >= totalSlides) index = totalSlides - 1;
-            
-            currentSlide = index;
-            const offset = getOffsetForSlide(currentSlide);
-            
-            slider.style.transform = `translateX(${offset}px)`;
-            slider.style.transition = 'transform 0.5s ease-out';
-            
-            // Update active class on slides
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === currentSlide);
-            });
-            
-            // Update button opacity
-            if (prevBtn) prevBtn.style.opacity = currentSlide > 0 ? '0.9' : '0.3';
-            if (nextBtn) nextBtn.style.opacity = currentSlide < totalSlides - 1 ? '0.9' : '0.3';
-            
-            // Update dots
-            updateDots();
-            
-            console.log('Moved to slide:', currentSlide, 'offset:', offset);
-        }
-        
-        // Button handlers - DIRECT
+        // Button handlers
         if (prevBtn) {
             prevBtn.onclick = function() {
                 console.log('Prev clicked');
-                goToSlide(currentSlide - 1);
+                prev();
             };
         }
         
         if (nextBtn) {
             nextBtn.onclick = function() {
                 console.log('Next clicked');
-                goToSlide(currentSlide + 1);
+                next();
             };
         }
         
-        // Initialize first slide and generate dots
-        slides[0].classList.add('active');
-        if (prevBtn) prevBtn.style.opacity = '0.3';
+        // Initialize
         generateDots();
-        updateDots();
+        // Start at first real slide (index 1 because of the clone)
+        slider.style.transition = 'none';
+        slider.style.transform = `translateX(${calculateOffset(1)}px)`;
+        originalSlides[0].classList.add('active');
+        if (dots.length > 0) dots[0].classList.add('active');
         
-        console.log('Slider initialized with', totalSlides, 'slides');
+        console.log('Infinite carousel initialized with', totalOriginalSlides, 'slides (+ 2 clones)');
     }
 
 });

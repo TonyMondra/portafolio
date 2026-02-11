@@ -279,14 +279,12 @@ p.carousel-header-content {
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     display: block !important;
+    flex-shrink: 0;
 }
 
-#proyects-carrusel .carousel-item:first-child {
-    margin-left: calc((100vw - 91vw) / 2);
-}
-
-#proyects-carrusel .carousel-item:last-child {
-    margin-right: calc((100vw - 91vw) / 2);
+/* Los clones deben verse iguales */
+#proyects-carrusel .carousel-item.clone {
+    display: block !important;
 }
 
 /* Imágenes */
@@ -419,14 +417,6 @@ p.carousel-header-content {
         margin: 0 15px;
     }
     
-    #proyects-carrusel .carousel-item:first-child {
-        margin-left: calc((100vw - 91vw) / 2);
-    }
-    
-    #proyects-carrusel .carousel-item:last-child {
-        margin-right: calc((100vw - 91vw) / 2);
-    }
-    
     .proj-nav-btn {
         width: 45px;
         height: 45px;
@@ -445,14 +435,6 @@ p.carousel-header-content {
     #proyects-carrusel .carousel-item {
         flex: 0 0 91vw;
         margin: 0 10px;
-    }
-    
-    #proyects-carrusel .carousel-item:first-child {
-        margin-left: calc((100vw - 91vw) / 2);
-    }
-    
-    #proyects-carrusel .carousel-item:last-child {
-        margin-right: calc((100vw - 91vw) / 2);
     }
     
     .proj-nav-btn {
