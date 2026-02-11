@@ -261,12 +261,7 @@ p.carousel-header-content {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    cursor: grab;
     padding: 20px 0 30px 0;
-}
-
-#proyects-carrusel:active {
-    cursor: grabbing;
 }
 
 /* Indicador visual de scroll */

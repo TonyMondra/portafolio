@@ -208,80 +208,61 @@ document.addEventListener('DOMContentLoaded', function () {
     // Horizontal scroll with vertical wheel - Projects Section
     const proyectosBlock = document.getElementById('proyectos-block');
     const scrollContainer = document.getElementById('proyects-carrusel');
+    const prevBtn = document.getElementById('scroll-prev');
+    const nextBtn = document.getElementById('scroll-next');
     
     if (proyectosBlock && scrollContainer) {
-        let isInViewport = false;
-        let hasScrolledHorizontal = false;
-        let lastScrollTop = 0;
+        let isInProyectosSection = false;
         
-        // Check if element is in viewport
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+        // Simple check: is proyectos block visible in viewport?
+        function checkIfInView() {
+            const rect = proyectosBlock.getBoundingClientRect();
+            // Section is "active" when it's in the middle of viewport
+            isInProyectosSection = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
         }
         
-        // Handle wheel events
-        function handleWheel(e) {
-            if (!isInViewport) return;
+        // Check on scroll
+        window.addEventListener('scroll', checkIfInView, { passive: true });
+        // Check initially
+        checkIfInView();
+        
+        // Handle wheel events on the document
+        document.addEventListener('wheel', function(e) {
+            if (!isInProyectosSection) return;
             
             const delta = e.deltaY;
-            const scrollLeft = scrollContainer.scrollLeft;
+            const currentScroll = scrollContainer.scrollLeft;
             const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
             
-            // Check if we're at the start or end of horizontal scroll
-            const atStart = scrollLeft <= 0;
-            const atEnd = scrollLeft >= maxScroll - 5;
-            
-            // If scrolling down and not at end, scroll horizontally
-            if (delta > 0 && !atEnd) {
+            // If scrolling down and not at end of projects
+            if (delta > 0 && currentScroll < maxScroll - 10) {
                 e.preventDefault();
-                scrollContainer.scrollBy({
-                    left: delta,
-                    behavior: 'auto'
-                });
-                hasScrolledHorizontal = true;
+                e.stopPropagation();
+                scrollContainer.scrollLeft += delta * 1.5;
             }
-            // If scrolling up and not at start, scroll horizontally
-            else if (delta < 0 && !atStart) {
+            // If scrolling up and not at start of projects  
+            else if (delta < 0 && currentScroll > 10) {
                 e.preventDefault();
-                scrollContainer.scrollBy({
-                    left: delta,
-                    behavior: 'auto'
-                });
-                hasScrolledHorizontal = true;
+                e.stopPropagation();
+                scrollContainer.scrollLeft += delta * 1.5;
             }
-            // Allow normal vertical scroll only at boundaries
-            else if ((delta > 0 && atEnd) || (delta < 0 && atStart)) {
-                hasScrolledHorizontal = false;
-            }
-        }
+            // Otherwise allow normal page scroll
+        }, { passive: false });
         
-        // Intersection Observer to detect when projects section is in view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                    isInViewport = true;
-                } else {
-                    isInViewport = false;
-                    hasScrolledHorizontal = false;
-                }
-            });
-        }, {
-            threshold: [0, 0.5, 1],
-            rootMargin: '-25% 0px -25% 0px'
-        });
-        
-        observer.observe(proyectosBlock);
-        
-        // Add wheel event listener
-        window.addEventListener('wheel', handleWheel, { passive: false });
-        
-        // Optional: Hide/show navigation buttons based on position
-        const prevBtn = document.getElementById('scroll-prev');
-        const nextBtn = document.getElementById('scroll-next');
-        
+        // Button click handlers
         if (prevBtn && nextBtn) {
-            scrollContainer.addEventListener('scroll', () => {
+            prevBtn.onclick = function(e) {
+                e.preventDefault();
+                scrollContainer.scrollBy({ left: -window.innerWidth * 0.5, behavior: 'smooth' });
+            };
+            
+            nextBtn.onclick = function(e) {
+                e.preventDefault();
+                scrollContainer.scrollBy({ left: window.innerWidth * 0.5, behavior: 'smooth' });
+            };
+            
+            // Update button visibility
+            scrollContainer.addEventListener('scroll', function() {
                 const scrollLeft = scrollContainer.scrollLeft;
                 const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
                 
@@ -289,19 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextBtn.style.opacity = scrollLeft < maxScroll - 50 ? '0.9' : '0.3';
             });
             
-            // Initial state
             prevBtn.style.opacity = '0.3';
-            
-            // Click handlers for buttons
-            prevBtn.onclick = function(e) {
-                e.preventDefault();
-                scrollContainer.scrollBy({ left: -400, behavior: 'smooth' });
-            };
-            
-            nextBtn.onclick = function(e) {
-                e.preventDefault();
-                scrollContainer.scrollBy({ left: 400, behavior: 'smooth' });
-            };
         }
     }
 
