@@ -221,7 +221,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return scrollContainer.clientWidth * 0.7;
         }
         
-        prevBtn.addEventListener('click', (e) => {
+        // Use mousedown instead of click to avoid Bootstrap interference
+        prevBtn.addEventListener('mousedown', function(e) {
             e.preventDefault();
             e.stopPropagation();
             const scrollAmount = getScrollAmount();
@@ -231,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
         
-        nextBtn.addEventListener('click', (e) => {
+        nextBtn.addEventListener('mousedown', function(e) {
             e.preventDefault();
             e.stopPropagation();
             const scrollAmount = getScrollAmount();
@@ -239,6 +240,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 left: scrollAmount,
                 behavior: 'smooth'
             });
+        });
+        
+        // Also support click for accessibility
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+        });
+        
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
         });
         
         // Hide/show buttons based on scroll position

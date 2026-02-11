@@ -361,10 +361,9 @@ p.carousel-header-content {
     transform: none !important;
 }
 
-/* Botones de navegación reposicionados */
-#proyects-carrusel .carousel-control-prev,
-#proyects-carrusel .carousel-control-next {
-    position: fixed;
+/* Botones de navegación - clases personalizadas */
+.proj-nav-btn {
+    position: absolute;
     width: 50px;
     height: 50px;
     top: 50%;
@@ -378,29 +377,28 @@ p.carousel-header-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: auto;
+    color: white;
+    transition: all 0.2s ease;
 }
 
-#proyects-carrusel .carousel-control-prev {
+.proj-nav-prev {
     left: 3vw;
 }
 
-#proyects-carrusel .carousel-control-next {
+.proj-nav-next {
     right: 3vw;
 }
 
-#proyects-carrusel .carousel-control-prev:hover,
-#proyects-carrusel .carousel-control-next:hover {
+.proj-nav-btn:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.9);
     border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.1);
 }
 
-#proyects-carrusel .carousel-control-prev-icon,
-#proyects-carrusel .carousel-control-next-icon {
+.proj-nav-btn svg {
     width: 20px;
     height: 20px;
-    pointer-events: none;
 }
 
 /* Responsive */
@@ -414,17 +412,16 @@ p.carousel-header-content {
         gap: 20px;
     }
     
-    #proyects-carrusel .carousel-control-prev,
-    #proyects-carrusel .carousel-control-next {
+    .proj-nav-btn {
         width: 45px;
         height: 45px;
     }
     
-    #proyects-carrusel .carousel-control-prev {
+    .proj-nav-prev {
         left: 2vw;
     }
     
-    #proyects-carrusel .carousel-control-next {
+    .proj-nav-next {
         right: 2vw;
     }
 }
@@ -438,8 +435,7 @@ p.carousel-header-content {
         padding: 0 7.5vw;
     }
     
-    #proyects-carrusel .carousel-control-prev,
-    #proyects-carrusel .carousel-control-next {
+    .proj-nav-btn {
         width: 40px;
         height: 40px;
     }
