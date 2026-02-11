@@ -361,6 +361,12 @@ p.carousel-header-content {
     transform: none !important;
 }
 
+/* Wrapper para el carrusel y botones */
+.proyects-wrapper {
+    position: relative;
+    width: 100%;
+}
+
 /* Botones de navegación - clases personalizadas */
 .proj-nav-btn {
     position: absolute;
@@ -382,11 +388,11 @@ p.carousel-header-content {
 }
 
 .proj-nav-prev {
-    left: 3vw;
+    left: 15px;
 }
 
 .proj-nav-next {
-    right: 3vw;
+    right: 15px;
 }
 
 .proj-nav-btn:hover {
@@ -418,11 +424,11 @@ p.carousel-header-content {
     }
     
     .proj-nav-prev {
-        left: 2vw;
+        left: 10px;
     }
     
     .proj-nav-next {
-        right: 2vw;
+        right: 10px;
     }
 }
 
@@ -438,6 +444,14 @@ p.carousel-header-content {
     .proj-nav-btn {
         width: 40px;
         height: 40px;
+    }
+    
+    .proj-nav-prev {
+        left: 5px;
+    }
+    
+    .proj-nav-next {
+        right: 5px;
     }
     
     .scroll-hint-text {
