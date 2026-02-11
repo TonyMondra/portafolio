@@ -89,20 +89,16 @@
                 <h2 id="proyectos-header">Proyectos</h2>
             </div>
 
-            <div id="proyects-carrusel" class="carousel slide">
+            <div id="proyects-carrusel">
 
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#proyects-carrusel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                <div class="scroll-hint">
+                    <span class="scroll-hint-text">← Desliza para ver más proyectos →</span>
+                    <div class="scroll-hint-line"></div>
                 </div>
 
                 <div class="carousel-inner">
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item">
 
                         <picture>
                             <source srcset="assets/img/features/cap-jumapan-vertical.webp" media="(max-width: 991px)"
@@ -179,12 +175,12 @@
                         <div class="carousel-caption d-md-block">
 
                             <a class="btn carousel-caption-header" data-bs-toggle="collapse"
-                                href="#carousel-header-lagersoft" role="button" aria-expanded="false"
+                                href="#carousel-header-aurora" role="button" aria-expanded="false"
                                 aria-controls="collapseExample">
                                 <p class="carousel-caption-title titulo-pulsante"> Aurora sales </p>
                             </a>
 
-                            <div class="carousel-caption-content collapse" id="carousel-header-lagersoft">
+                            <div class="carousel-caption-content collapse" id="carousel-header-aurora">
                                 <p class="carousel-header-content">Proyecto académico, CRM </p>
 
                                 <div class="carousel-links-box">
@@ -197,13 +193,11 @@
                     </div>
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#proyects-carrusel"
-                    data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" id="scroll-prev" aria-label="Anterior proyecto">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#proyects-carrusel"
-                    data-bs-slide="next">
+                <button class="carousel-control-next" type="button" id="scroll-next" aria-label="Siguiente proyecto">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>

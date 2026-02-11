@@ -235,6 +235,218 @@ p.carousel-header-content {
     background-color: rgba(0, 0, 0, 0.527) !important;
 }
 
+/* ############### HORIZONTAL SNAP SCROLLING ###############*/
+
+/* Wrapper que rompe el container para permitir scroll */
+#proyectos-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Header centrado */
+#proyectos-header-box {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+#proyects-carrusel {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    cursor: grab;
+    padding: 20px 0 30px 0;
+}
+
+#proyects-carrusel:active {
+    cursor: grabbing;
+}
+
+/* Indicador visual de scroll */
+.scroll-hint {
+    text-align: center;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.scroll-hint-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.scroll-hint-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    margin: 8px auto 0;
+    animation: pulse-line 2s infinite;
+}
+
+@keyframes pulse-line {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Mostrar scrollbar personalizada como indicador visual */
+#proyects-carrusel::-webkit-scrollbar {
+    height: 6px;
+}
+
+#proyects-carrusel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin: 0 10vw;
+}
+
+#proyects-carrusel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+#proyects-carrusel::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#proyects-carrusel .carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    padding: 0 10vw;
+    width: max-content;
+    position: relative;
+}
+
+#proyects-carrusel .carousel-inner::after {
+    display: none;
+}
+
+#proyects-carrusel .carousel-item {
+    flex: 0 0 auto;
+    width: 70vw;
+    max-width: 800px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    display: block !important;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    float: none;
+    margin-right: 0;
+    backface-visibility: hidden;
+    transition: none;
+}
+
+#proyects-carrusel .carousel-item.active {
+    display: block !important;
+}
+
+#proyects-carrusel .carousel-item:not(.active) {
+    display: block !important;
+}
+
+#proyects-carrusel .carousel-item-next,
+#proyects-carrusel .carousel-item-prev,
+#proyects-carrusel .carousel-item-start,
+#proyects-carrusel .carousel-item-end {
+    display: block !important;
+    transform: none !important;
+}
+
+/* Botones de navegación reposicionados */
+#proyects-carrusel .carousel-control-prev,
+#proyects-carrusel .carousel-control-next {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    opacity: 0.9;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#proyects-carrusel .carousel-control-prev {
+    left: 3vw;
+}
+
+#proyects-carrusel .carousel-control-next {
+    right: 3vw;
+}
+
+#proyects-carrusel .carousel-control-prev:hover,
+#proyects-carrusel .carousel-control-next:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+#proyects-carrusel .carousel-control-prev-icon,
+#proyects-carrusel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    #proyects-carrusel .carousel-item {
+        width: 80vw;
+    }
+    
+    #proyects-carrusel .carousel-inner {
+        padding: 0 10vw;
+        gap: 20px;
+    }
+    
+    #proyects-carrusel .carousel-control-prev,
+    #proyects-carrusel .carousel-control-next {
+        width: 45px;
+        height: 45px;
+    }
+    
+    #proyects-carrusel .carousel-control-prev {
+        left: 2vw;
+    }
+    
+    #proyects-carrusel .carousel-control-next {
+        right: 2vw;
+    }
+}
+
+@media (max-width: 576px) {
+    #proyects-carrusel .carousel-item {
+        width: 85vw;
+    }
+    
+    #proyects-carrusel .carousel-inner {
+        padding: 0 7.5vw;
+    }
+    
+    #proyects-carrusel .carousel-control-prev,
+    #proyects-carrusel .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .scroll-hint-text {
+        font-size: 0.8rem;
+    }
+}
+
 /* ############### SKILLS / STACK ###############*/
 
 #stack-block {

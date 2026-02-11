@@ -205,4 +205,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
+    // Horizontal scroll navigation for projects
+    const scrollContainer = document.getElementById('proyects-carrusel');
+    const prevBtn = document.getElementById('scroll-prev');
+    const nextBtn = document.getElementById('scroll-next');
+    
+    if (scrollContainer && prevBtn && nextBtn) {
+        const items = scrollContainer.querySelectorAll('.carousel-item');
+        const itemWidth = items[0] ? items[0].offsetWidth + 30 : 0; // width + gap
+        
+        prevBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: -itemWidth,
+                behavior: 'smooth'
+            });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: itemWidth,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Hide/show buttons based on scroll position
+        scrollContainer.addEventListener('scroll', () => {
+            const scrollLeft = scrollContainer.scrollLeft;
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+            
+            prevBtn.style.opacity = scrollLeft > 50 ? '0.9' : '0.3';
+            nextBtn.style.opacity = scrollLeft < maxScroll - 50 ? '0.9' : '0.3';
+        });
+        
+        // Initial state
+        prevBtn.style.opacity = '0.3';
+    }
+
 });
