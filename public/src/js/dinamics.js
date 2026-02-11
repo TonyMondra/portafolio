@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
             allSlides[index].scrollIntoView({ behavior: behavior, inline: 'center', block: 'nearest' });
         }
         
-        // Handle infinite loop
+        // Handle infinite loop with smooth transition
         function handleInfiniteScroll() {
             if (isScrolling) return;
             
@@ -255,18 +255,24 @@ document.addEventListener('DOMContentLoaded', function () {
             // If at clone of last slide (index 0), jump to real last slide
             if (currentIndex === 0) {
                 isScrolling = true;
-                setTimeout(() => {
-                    scrollToSlide(totalSlides, 'auto'); // Jump to last real slide
+                // Disable transitions temporarily
+                scrollContainer.style.scrollBehavior = 'auto';
+                scrollToSlide(totalSlides, 'auto');
+                requestAnimationFrame(() => {
+                    scrollContainer.style.scrollBehavior = 'smooth';
                     isScrolling = false;
-                }, 100);
+                });
             }
             // If at clone of first slide (last index), jump to real first slide
             else if (currentIndex === totalAllSlides - 1) {
                 isScrolling = true;
-                setTimeout(() => {
-                    scrollToSlide(1, 'auto'); // Jump to first real slide
+                // Disable transitions temporarily
+                scrollContainer.style.scrollBehavior = 'auto';
+                scrollToSlide(1, 'auto');
+                requestAnimationFrame(() => {
+                    scrollContainer.style.scrollBehavior = 'smooth';
                     isScrolling = false;
-                }, 100);
+                });
             }
             
             updateDots(currentIndex);
