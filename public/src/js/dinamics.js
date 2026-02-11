@@ -191,76 +191,143 @@ document.addEventListener('DOMContentLoaded', function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    // Simple Scroll Snap Carousel
+    // Infinite Scroll Snap Carousel
     const scrollContainer = document.getElementById('proyects-carrusel');
-    const slides = document.querySelectorAll('#proyects-carrusel .carousel-item');
+    const originalSlides = document.querySelectorAll('#proyects-carrusel .carousel-item');
     const prevBtn = document.getElementById('scroll-prev');
     const nextBtn = document.getElementById('scroll-next');
     const dotsNav = document.getElementById('projects-dots');
     
-    if (scrollContainer && slides.length > 0) {
+    if (scrollContainer && originalSlides.length > 1) {
+        const slidesArray = Array.from(originalSlides);
+        const totalSlides = slidesArray.length;
         let dots = [];
+        let isScrolling = false;
         
-        // Generate dots
+        // Clone first and last slides
+        const firstClone = slidesArray[0].cloneNode(true);
+        const lastClone = slidesArray[totalSlides - 1].cloneNode(true);
+        firstClone.classList.add('clone');
+        lastClone.classList.add('clone');
+        
+        // Add clones to DOM
+        scrollContainer.querySelector('.carousel-inner').appendChild(firstClone);
+        scrollContainer.querySelector('.carousel-inner').insertBefore(lastClone, slidesArray[0]);
+        
+        // Get all slides including clones
+        const allSlides = document.querySelectorAll('#proyects-carrusel .carousel-item');
+        
+        // Generate dots for original slides only
         function generateDots() {
             if (!dotsNav) return;
             dotsNav.innerHTML = '';
             dots = [];
             
-            slides.forEach((_, index) => {
+            slidesArray.forEach((_, index) => {
                 const dot = document.createElement('button');
                 dot.className = 'dot';
                 dot.setAttribute('aria-label', `Proyecto ${index + 1}`);
-                dot.onclick = () => scrollToSlide(index);
+                dot.onclick = () => scrollToSlide(index + 1); // +1 because of clone
                 dotsNav.appendChild(dot);
                 dots.push(dot);
             });
         }
         
-        // Scroll to specific slide
-        function scrollToSlide(index) {
-            if (index < 0) index = 0;
-            if (index >= slides.length) index = slides.length - 1;
-            
-            slides[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        // Get current slide index
+        function getCurrentIndex() {
+            const scrollLeft = scrollContainer.scrollLeft;
+            const slideWidth = allSlides[0].offsetWidth + 20; // width + margin
+            return Math.round(scrollLeft / slideWidth);
         }
         
-        // Update dots on scroll
-        function updateDots() {
-            const scrollLeft = scrollContainer.scrollLeft;
-            const slideWidth = slides[0].offsetWidth + 40; // width + margins
-            const activeIndex = Math.round(scrollLeft / slideWidth);
+        // Scroll to slide by index (including clones)
+        function scrollToSlide(index, behavior = 'smooth') {
+            allSlides[index].scrollIntoView({ behavior: behavior, inline: 'center', block: 'nearest' });
+        }
+        
+        // Handle infinite loop
+        function handleInfiniteScroll() {
+            if (isScrolling) return;
+            
+            const currentIndex = getCurrentIndex();
+            const totalAllSlides = allSlides.length;
+            
+            // If at clone of last slide (index 0), jump to real last slide
+            if (currentIndex === 0) {
+                isScrolling = true;
+                setTimeout(() => {
+                    scrollToSlide(totalSlides, 'auto'); // Jump to last real slide
+                    isScrolling = false;
+                }, 100);
+            }
+            // If at clone of first slide (last index), jump to real first slide
+            else if (currentIndex === totalAllSlides - 1) {
+                isScrolling = true;
+                setTimeout(() => {
+                    scrollToSlide(1, 'auto'); // Jump to first real slide
+                    isScrolling = false;
+                }, 100);
+            }
+            
+            updateDots(currentIndex);
+        }
+        
+        // Update dots based on current position
+        function updateDots(currentIndex) {
+            // Map to original slide index (subtract 1 for the clone at start)
+            let originalIndex = currentIndex - 1;
+            if (originalIndex < 0) originalIndex = totalSlides - 1;
+            if (originalIndex >= totalSlides) originalIndex = 0;
             
             dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === activeIndex);
+                dot.classList.toggle('active', i === originalIndex);
+            });
+            
+            // Update active class on slides
+            allSlides.forEach((slide, i) => {
+                const isActive = i === currentIndex;
+                slide.classList.toggle('active', isActive);
             });
         }
         
-        // Button handlers
+        // Button handlers with loop
         if (prevBtn) {
             prevBtn.onclick = () => {
-                const scrollLeft = scrollContainer.scrollLeft;
-                const slideWidth = slides[0].offsetWidth + 40;
-                const currentIndex = Math.round(scrollLeft / slideWidth);
-                scrollToSlide(currentIndex - 1);
+                const currentIndex = getCurrentIndex();
+                if (currentIndex === 1) {
+                    // At first real slide, go to clone of last
+                    scrollToSlide(0);
+                } else {
+                    scrollToSlide(currentIndex - 1);
+                }
             };
         }
         
         if (nextBtn) {
             nextBtn.onclick = () => {
-                const scrollLeft = scrollContainer.scrollLeft;
-                const slideWidth = slides[0].offsetWidth + 40;
-                const currentIndex = Math.round(scrollLeft / slideWidth);
-                scrollToSlide(currentIndex + 1);
+                const currentIndex = getCurrentIndex();
+                const lastRealIndex = totalSlides;
+                if (currentIndex === lastRealIndex) {
+                    // At last real slide, go to clone of first
+                    scrollToSlide(lastRealIndex + 1);
+                } else {
+                    scrollToSlide(currentIndex + 1);
+                }
             };
         }
         
         // Listen for scroll events
-        scrollContainer.addEventListener('scroll', updateDots, { passive: true });
+        scrollContainer.addEventListener('scroll', handleInfiniteScroll, { passive: true });
         
-        // Initialize
+        // Initialize - start at first real slide (index 1)
         generateDots();
-        if (dots.length > 0) dots[0].classList.add('active');
+        setTimeout(() => {
+            scrollToSlide(1, 'auto');
+            updateDots(1);
+        }, 100);
+    } else if (originalSlides.length === 1) {
+        // Single slide - just add active class
+        originalSlides[0].classList.add('active');
     }
 
 });
