@@ -212,18 +212,31 @@ document.addEventListener('DOMContentLoaded', function () {
     
     if (scrollContainer && prevBtn && nextBtn) {
         const items = scrollContainer.querySelectorAll('.carousel-item');
-        const itemWidth = items[0] ? items[0].offsetWidth + 30 : 0; // width + gap
+        const gap = 30;
         
-        prevBtn.addEventListener('click', () => {
+        function getScrollAmount() {
+            if (items.length > 0) {
+                return items[0].offsetWidth + gap;
+            }
+            return scrollContainer.clientWidth * 0.7;
+        }
+        
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const scrollAmount = getScrollAmount();
             scrollContainer.scrollBy({
-                left: -itemWidth,
+                left: -scrollAmount,
                 behavior: 'smooth'
             });
         });
         
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const scrollAmount = getScrollAmount();
             scrollContainer.scrollBy({
-                left: itemWidth,
+                left: scrollAmount,
                 behavior: 'smooth'
             });
         });
