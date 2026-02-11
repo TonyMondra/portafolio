@@ -266,6 +266,7 @@ p.carousel-header-content {
 #proyects-carrusel .carousel-inner {
     display: flex;
     flex-wrap: nowrap;
+    width: max-content;
     transition: transform 0.5s ease;
 }
 
@@ -282,6 +283,10 @@ p.carousel-header-content {
 
 #proyects-carrusel .carousel-item:first-child {
     margin-left: calc((100vw - 70vw) / 2);
+}
+
+#proyects-carrusel .carousel-item:last-child {
+    margin-right: calc((100vw - 70vw) / 2);
 }
 
 /* Imágenes */
