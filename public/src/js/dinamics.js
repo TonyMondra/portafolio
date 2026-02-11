@@ -205,125 +205,104 @@ document.addEventListener('DOMContentLoaded', function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    // Horizontal scroll navigation for projects
+    // Horizontal scroll with vertical wheel - Projects Section
+    const proyectosBlock = document.getElementById('proyectos-block');
     const scrollContainer = document.getElementById('proyects-carrusel');
-    const prevBtn = document.getElementById('scroll-prev');
-    const nextBtn = document.getElementById('scroll-next');
     
-    if (scrollContainer && prevBtn && nextBtn) {
-        const items = scrollContainer.querySelectorAll('.carousel-item');
-        const gap = 30;
+    if (proyectosBlock && scrollContainer) {
+        let isInViewport = false;
+        let hasScrolledHorizontal = false;
+        let lastScrollTop = 0;
         
-        function getItemWidth() {
-            return items.length > 0 ? items[0].offsetWidth + gap : scrollContainer.clientWidth * 0.7 + gap;
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
         }
         
-        function scrollToProject(direction) {
-            const itemWidth = getItemWidth();
-            const scrollAmount = direction === 'next' ? itemWidth : -itemWidth;
+        // Handle wheel events
+        function handleWheel(e) {
+            if (!isInViewport) return;
             
-            scrollContainer.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-        
-        function getCurrentIndex() {
-            const itemWidth = getItemWidth();
-            const scrollLeft = scrollContainer.scrollLeft;
-            return Math.round(scrollLeft / itemWidth);
-        }
-        
-        function goToProject(index) {
-            const itemWidth = getItemWidth();
-            const maxIndex = items.length - 1;
-            const targetIndex = Math.max(0, Math.min(index, maxIndex));
-            
-            scrollContainer.scrollTo({
-                left: targetIndex * itemWidth,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Click handlers
-        prevBtn.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const currentIndex = getCurrentIndex();
-            goToProject(currentIndex - 1);
-        };
-        
-        nextBtn.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const currentIndex = getCurrentIndex();
-            goToProject(currentIndex + 1);
-        };
-        
-        // Keyboard navigation
-        scrollContainer.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                const currentIndex = getCurrentIndex();
-                goToProject(currentIndex - 1);
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                const currentIndex = getCurrentIndex();
-                goToProject(currentIndex + 1);
-            }
-        });
-        
-        // Make scroll container focusable
-        scrollContainer.setAttribute('tabindex', '0');
-        
-        // Touch/swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        scrollContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        
-        scrollContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                const currentIndex = getCurrentIndex();
-                if (diff > 0) {
-                    // Swiped left, go next
-                    goToProject(currentIndex + 1);
-                } else {
-                    // Swiped right, go prev
-                    goToProject(currentIndex - 1);
-                }
-            }
-        }
-        
-        // Update buttons based on scroll position
-        function updateButtons() {
+            const delta = e.deltaY;
             const scrollLeft = scrollContainer.scrollLeft;
             const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
             
-            prevBtn.style.opacity = scrollLeft > 50 ? '0.9' : '0.3';
-            nextBtn.style.opacity = scrollLeft < maxScroll - 50 ? '0.9' : '0.3';
+            // Check if we're at the start or end of horizontal scroll
+            const atStart = scrollLeft <= 0;
+            const atEnd = scrollLeft >= maxScroll - 5;
+            
+            // If scrolling down and not at end, scroll horizontally
+            if (delta > 0 && !atEnd) {
+                e.preventDefault();
+                scrollContainer.scrollBy({
+                    left: delta,
+                    behavior: 'auto'
+                });
+                hasScrolledHorizontal = true;
+            }
+            // If scrolling up and not at start, scroll horizontally
+            else if (delta < 0 && !atStart) {
+                e.preventDefault();
+                scrollContainer.scrollBy({
+                    left: delta,
+                    behavior: 'auto'
+                });
+                hasScrolledHorizontal = true;
+            }
+            // Allow normal vertical scroll only at boundaries
+            else if ((delta > 0 && atEnd) || (delta < 0 && atStart)) {
+                hasScrolledHorizontal = false;
+            }
         }
         
-        scrollContainer.addEventListener('scroll', updateButtons);
-        
-        // Update on window resize
-        window.addEventListener('resize', () => {
-            const currentIndex = getCurrentIndex();
-            goToProject(currentIndex);
+        // Intersection Observer to detect when projects section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    isInViewport = true;
+                } else {
+                    isInViewport = false;
+                    hasScrolledHorizontal = false;
+                }
+            });
+        }, {
+            threshold: [0, 0.5, 1],
+            rootMargin: '-25% 0px -25% 0px'
         });
         
-        // Initial state
-        updateButtons();
+        observer.observe(proyectosBlock);
+        
+        // Add wheel event listener
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        
+        // Optional: Hide/show navigation buttons based on position
+        const prevBtn = document.getElementById('scroll-prev');
+        const nextBtn = document.getElementById('scroll-next');
+        
+        if (prevBtn && nextBtn) {
+            scrollContainer.addEventListener('scroll', () => {
+                const scrollLeft = scrollContainer.scrollLeft;
+                const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                
+                prevBtn.style.opacity = scrollLeft > 50 ? '0.9' : '0.3';
+                nextBtn.style.opacity = scrollLeft < maxScroll - 50 ? '0.9' : '0.3';
+            });
+            
+            // Initial state
+            prevBtn.style.opacity = '0.3';
+            
+            // Click handlers for buttons
+            prevBtn.onclick = function(e) {
+                e.preventDefault();
+                scrollContainer.scrollBy({ left: -400, behavior: 'smooth' });
+            };
+            
+            nextBtn.onclick = function(e) {
+                e.preventDefault();
+                scrollContainer.scrollBy({ left: 400, behavior: 'smooth' });
+            };
+        }
     }
 
 });
