@@ -214,54 +214,116 @@ document.addEventListener('DOMContentLoaded', function () {
         const items = scrollContainer.querySelectorAll('.carousel-item');
         const gap = 30;
         
-        function getScrollAmount() {
-            if (items.length > 0) {
-                return items[0].offsetWidth + gap;
-            }
-            return scrollContainer.clientWidth * 0.7;
+        function getItemWidth() {
+            return items.length > 0 ? items[0].offsetWidth + gap : scrollContainer.clientWidth * 0.7 + gap;
         }
         
-        // Use mousedown instead of click to avoid Bootstrap interference
-        prevBtn.addEventListener('mousedown', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const scrollAmount = getScrollAmount();
-            scrollContainer.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-        
-        nextBtn.addEventListener('mousedown', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const scrollAmount = getScrollAmount();
+        function scrollToProject(direction) {
+            const itemWidth = getItemWidth();
+            const scrollAmount = direction === 'next' ? itemWidth : -itemWidth;
+            
             scrollContainer.scrollBy({
                 left: scrollAmount,
                 behavior: 'smooth'
             });
-        });
+        }
         
-        // Also support click for accessibility
-        prevBtn.addEventListener('click', function(e) {
+        function getCurrentIndex() {
+            const itemWidth = getItemWidth();
+            const scrollLeft = scrollContainer.scrollLeft;
+            return Math.round(scrollLeft / itemWidth);
+        }
+        
+        function goToProject(index) {
+            const itemWidth = getItemWidth();
+            const maxIndex = items.length - 1;
+            const targetIndex = Math.max(0, Math.min(index, maxIndex));
+            
+            scrollContainer.scrollTo({
+                left: targetIndex * itemWidth,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Click handlers
+        prevBtn.onclick = function(e) {
             e.preventDefault();
-        });
+            e.stopPropagation();
+            const currentIndex = getCurrentIndex();
+            goToProject(currentIndex - 1);
+        };
         
-        nextBtn.addEventListener('click', function(e) {
+        nextBtn.onclick = function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            const currentIndex = getCurrentIndex();
+            goToProject(currentIndex + 1);
+        };
+        
+        // Keyboard navigation
+        scrollContainer.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const currentIndex = getCurrentIndex();
+                goToProject(currentIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const currentIndex = getCurrentIndex();
+                goToProject(currentIndex + 1);
+            }
         });
         
-        // Hide/show buttons based on scroll position
-        scrollContainer.addEventListener('scroll', () => {
+        // Make scroll container focusable
+        scrollContainer.setAttribute('tabindex', '0');
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        scrollContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        scrollContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                const currentIndex = getCurrentIndex();
+                if (diff > 0) {
+                    // Swiped left, go next
+                    goToProject(currentIndex + 1);
+                } else {
+                    // Swiped right, go prev
+                    goToProject(currentIndex - 1);
+                }
+            }
+        }
+        
+        // Update buttons based on scroll position
+        function updateButtons() {
             const scrollLeft = scrollContainer.scrollLeft;
             const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
             
             prevBtn.style.opacity = scrollLeft > 50 ? '0.9' : '0.3';
             nextBtn.style.opacity = scrollLeft < maxScroll - 50 ? '0.9' : '0.3';
+        }
+        
+        scrollContainer.addEventListener('scroll', updateButtons);
+        
+        // Update on window resize
+        window.addEventListener('resize', () => {
+            const currentIndex = getCurrentIndex();
+            goToProject(currentIndex);
         });
         
         // Initial state
-        prevBtn.style.opacity = '0.3';
+        updateButtons();
     }
 
 });
