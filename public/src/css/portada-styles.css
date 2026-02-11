@@ -272,7 +272,7 @@ p.carousel-header-content {
     height: 100%;
 }
 
-/* Cada item */
+/* Cada item - IMPORTANTE: forzar display para anular Bootstrap */
 #proyects-carrusel .carousel-item {
     flex: 0 0 70vw;
     max-width: 800px;
@@ -282,10 +282,20 @@ p.carousel-header-content {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.5s ease;
     will-change: transform;
+    display: block !important;
+    position: relative;
 }
 
 #proyects-carrusel .carousel-item:first-child {
     margin-left: calc((100vw - 70vw) / 2);
+}
+
+/* Asegurar que las imágenes sean visibles */
+#proyects-carrusel .carousel-item picture,
+#proyects-carrusel .carousel-item img {
+    display: block !important;
+    width: 100%;
+    height: auto;
 }
 
 /* Estados visuales */
@@ -374,12 +384,12 @@ p.carousel-header-content {
 /* Responsive */
 @media (max-width: 991px) {
     #proyects-carrusel .carousel-item {
-        width: 80vw;
+        flex: 0 0 80vw;
+        margin: 0 10px;
     }
     
-    #proyects-carrusel .carousel-inner {
-        padding: 0 10vw;
-        gap: 20px;
+    #proyects-carrusel .carousel-item:first-child {
+        margin-left: calc((100vw - 80vw) / 2);
     }
     
     .proj-nav-btn {
@@ -398,11 +408,12 @@ p.carousel-header-content {
 
 @media (max-width: 576px) {
     #proyects-carrusel .carousel-item {
-        width: 85vw;
+        flex: 0 0 85vw;
+        margin: 0 7.5vw;
     }
     
-    #proyects-carrusel .carousel-inner {
-        padding: 0 7.5vw;
+    #proyects-carrusel .carousel-item:first-child {
+        margin-left: calc((100vw - 85vw) / 2);
     }
     
     .proj-nav-btn {
