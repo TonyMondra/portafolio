@@ -201,19 +201,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.getElementById('scroll-prev');
     const nextBtn = document.getElementById('scroll-next');
     const dotsNav = document.getElementById('projects-dots');
-    const dots = dotsNav ? dotsNav.querySelectorAll('.dot') : [];
     
     console.log('Slider found:', !!slider);
     console.log('Slides found:', slides.length);
     console.log('Prev button:', !!prevBtn);
     console.log('Next button:', !!nextBtn);
-    console.log('Dots found:', dots.length);
     
     if (!slider || slides.length === 0) {
         console.error('Slider elements not found!');
     } else {
         let currentSlide = 0;
         const totalSlides = slides.length;
+        let dots = [];
         
         // Get slide width including margins
         function getSlideWidth() {
@@ -225,13 +224,36 @@ document.addEventListener('DOMContentLoaded', function () {
             return width + marginLeft + marginRight;
         }
         
+        // Generate dots dynamically based on number of slides
+        function generateDots() {
+            if (!dotsNav) return;
+            
+            // Clear existing dots
+            dotsNav.innerHTML = '';
+            dots = [];
+            
+            // Create a dot for each slide
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'dot';
+                dot.setAttribute('data-slide', index);
+                dot.setAttribute('aria-label', `Proyecto ${index + 1}`);
+                dot.onclick = function() {
+                    console.log('Dot clicked:', index);
+                    goToSlide(index);
+                };
+                dotsNav.appendChild(dot);
+                dots.push(dot);
+            });
+            
+            console.log('Generated', dots.length, 'dots');
+        }
+        
         // Update dots navigation
         function updateDots() {
-            if (dots.length > 0) {
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentSlide);
-                });
-            }
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
         }
         
         // Move to specific slide
@@ -276,19 +298,10 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
         
-        // Dots click handlers
-        if (dots.length > 0) {
-            dots.forEach((dot, index) => {
-                dot.onclick = function() {
-                    console.log('Dot clicked:', index);
-                    goToSlide(index);
-                };
-            });
-        }
-        
-        // Initialize first slide and dot as active
+        // Initialize first slide and generate dots
         slides[0].classList.add('active');
         if (prevBtn) prevBtn.style.opacity = '0.3';
+        generateDots();
         updateDots();
         
         console.log('Slider initialized with', totalSlides, 'slides');
