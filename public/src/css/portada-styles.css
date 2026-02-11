@@ -378,6 +378,40 @@ p.carousel-header-content {
     height: 20px;
 }
 
+/* Dots Navigation */
+.dots-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 10px 0;
+}
+
+.dots-nav .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.dots-nav .dot:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.dots-nav .dot.active {
+    background-color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
 /* Responsive */
 @media (max-width: 991px) {
     #proyects-carrusel .carousel-item {

@@ -200,11 +200,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('#proyects-carrusel .carousel-item');
     const prevBtn = document.getElementById('scroll-prev');
     const nextBtn = document.getElementById('scroll-next');
+    const dotsNav = document.getElementById('projects-dots');
+    const dots = dotsNav ? dotsNav.querySelectorAll('.dot') : [];
     
     console.log('Slider found:', !!slider);
     console.log('Slides found:', slides.length);
     console.log('Prev button:', !!prevBtn);
     console.log('Next button:', !!nextBtn);
+    console.log('Dots found:', dots.length);
     
     if (!slider || slides.length === 0) {
         console.error('Slider elements not found!');
@@ -222,6 +225,15 @@ document.addEventListener('DOMContentLoaded', function () {
             return width + marginLeft + marginRight;
         }
         
+        // Update dots navigation
+        function updateDots() {
+            if (dots.length > 0) {
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentSlide);
+                });
+            }
+        }
+        
         // Move to specific slide
         function goToSlide(index) {
             if (index < 0) index = 0;
@@ -234,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
             slider.style.transform = `translateX(${offset}px)`;
             slider.style.transition = 'transform 0.5s ease-out';
             
-            // Update active class
+            // Update active class on slides
             slides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === currentSlide);
             });
@@ -242,6 +254,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // Update button opacity
             if (prevBtn) prevBtn.style.opacity = currentSlide > 0 ? '0.9' : '0.3';
             if (nextBtn) nextBtn.style.opacity = currentSlide < totalSlides - 1 ? '0.9' : '0.3';
+            
+            // Update dots
+            updateDots();
             
             console.log('Moved to slide:', currentSlide, 'offset:', offset);
         }
@@ -261,9 +276,20 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
         
-        // Initialize first slide as active
+        // Dots click handlers
+        if (dots.length > 0) {
+            dots.forEach((dot, index) => {
+                dot.onclick = function() {
+                    console.log('Dot clicked:', index);
+                    goToSlide(index);
+                };
+            });
+        }
+        
+        // Initialize first slide and dot as active
         slides[0].classList.add('active');
         if (prevBtn) prevBtn.style.opacity = '0.3';
+        updateDots();
         
         console.log('Slider initialized with', totalSlides, 'slides');
     }
