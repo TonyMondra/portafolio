@@ -240,6 +240,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 const currentStyle = window.getComputedStyle(slides[index]);
                 offset += parseInt(currentStyle.marginLeft) || 0;
             }
+            
+            // For the last slide, subtract the right margin to avoid empty space
+            if (index === totalSlides - 1) {
+                const lastSlide = slides[totalSlides - 1];
+                const lastStyle = window.getComputedStyle(lastSlide);
+                const lastMarginRight = parseInt(lastStyle.marginRight) || 0;
+                offset -= lastMarginRight;
+            }
+            
             return -offset;
         }
         

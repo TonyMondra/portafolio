@@ -286,7 +286,7 @@ p.carousel-header-content {
 }
 
 #proyects-carrusel .carousel-item:last-child {
-    margin-right: 0;
+    margin-right: calc((100vw - 91vw) / 2);
 }
 
 /* Imágenes */
@@ -424,7 +424,7 @@ p.carousel-header-content {
     }
     
     #proyects-carrusel .carousel-item:last-child {
-        margin-right: 0;
+        margin-right: calc((100vw - 91vw) / 2);
     }
     
     .proj-nav-btn {
@@ -452,7 +452,7 @@ p.carousel-header-content {
     }
     
     #proyects-carrusel .carousel-item:last-child {
-        margin-right: 0;
+        margin-right: calc((100vw - 91vw) / 2);
     }
     
     .proj-nav-btn {
