@@ -72,6 +72,9 @@ body {
 
 .nav-github-icon-box {
     width: auto;
+    display: flex;
+    
+    justify-content: center;
 }
 
 .nav-github-icon-img {
@@ -100,7 +103,7 @@ footer {
     animation: slideBanner 50s linear infinite;
 }
 
-.footer-author{
+.footer-author {
     text-decoration: none;
     color: rgb(195, 152, 241);
 }
@@ -113,6 +116,12 @@ footer {
 /* ############## MEDIA QUERIES ############## */
 
 @media (max-width: 991px) {
+
+    .nav-github-icon-box {
+        width: 56px;
+        height: 40px;
+    }
+
 
     .nav-container {
         display: flex !important;
