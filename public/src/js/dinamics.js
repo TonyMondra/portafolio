@@ -258,6 +258,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Disable transitions temporarily
                 scrollContainer.style.scrollBehavior = 'auto';
                 scrollToSlide(totalSlides, 'auto');
+                // Update active class immediately after jump
+                updateDots(totalSlides);
                 requestAnimationFrame(() => {
                     scrollContainer.style.scrollBehavior = 'smooth';
                     isScrolling = false;
@@ -269,13 +271,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Disable transitions temporarily
                 scrollContainer.style.scrollBehavior = 'auto';
                 scrollToSlide(1, 'auto');
+                // Update active class immediately after jump
+                updateDots(1);
                 requestAnimationFrame(() => {
                     scrollContainer.style.scrollBehavior = 'smooth';
                     isScrolling = false;
                 });
             }
-            
-            updateDots(currentIndex);
+            else {
+                updateDots(currentIndex);
+            }
         }
         
         // Update dots based on current position
