@@ -320,7 +320,6 @@ p.carousel-header-content {
 .proyects-wrapper {
     position: relative;
     width: 100%;
-    border: #f6e720 solid 1px;
 }
 
 #proyects-carrusel {
@@ -329,12 +328,8 @@ p.carousel-header-content {
     overflow: hidden;
     padding: 20px 0 30px 0;
     margin-bottom: 100px;
-    border: red solid 1px;
 }
 
-.carousel-inner{
-    border: greenyellow solid 1px;
-}
 
 /* Container de items */
 #proyects-carrusel .carousel-inner {
