@@ -188,21 +188,157 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     };
 
-    function changeImageSrc() {
-        let image = document.getElementById("proyectoBook-img");
-      
-        if (window.innerWidth <= 991) {
-          image.src = "media/black.png"; // URL for small screens
-        } else {
-          image.src = "media/prueba.png"; // URL for large screens
-        }
-      }
-      
-
-      window.addEventListener("load", changeImageSrc);
-      window.addEventListener("resize", changeImageSrc);
-
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    // Infinite Scroll Snap Carousel
+    const scrollContainer = document.getElementById('proyects-carrusel');
+    const originalSlides = document.querySelectorAll('#proyects-carrusel .carousel-item');
+    const prevBtn = document.getElementById('scroll-prev');
+    const nextBtn = document.getElementById('scroll-next');
+    const dotsNav = document.getElementById('projects-dots');
+    
+    if (scrollContainer && originalSlides.length > 1) {
+        const slidesArray = Array.from(originalSlides);
+        const totalSlides = slidesArray.length;
+        let dots = [];
+        let isScrolling = false;
+        
+        // Clone first and last slides
+        const firstClone = slidesArray[0].cloneNode(true);
+        const lastClone = slidesArray[totalSlides - 1].cloneNode(true);
+        firstClone.classList.add('clone');
+        lastClone.classList.add('clone');
+        
+        // Add clones to DOM
+        scrollContainer.querySelector('.carousel-inner').appendChild(firstClone);
+        scrollContainer.querySelector('.carousel-inner').insertBefore(lastClone, slidesArray[0]);
+        
+        // Get all slides including clones
+        const allSlides = document.querySelectorAll('#proyects-carrusel .carousel-item');
+        
+        // Generate dots for original slides only
+        function generateDots() {
+            if (!dotsNav) return;
+            dotsNav.innerHTML = '';
+            dots = [];
+            
+            slidesArray.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'dot';
+                dot.setAttribute('aria-label', `Proyecto ${index + 1}`);
+                dot.onclick = () => scrollToSlide(index + 1); // +1 because of clone
+                dotsNav.appendChild(dot);
+                dots.push(dot);
+            });
+        }
+        
+        // Get current slide index
+        function getCurrentIndex() {
+            const scrollLeft = scrollContainer.scrollLeft;
+            const slideWidth = allSlides[0].offsetWidth + 20; // width + margin
+            return Math.round(scrollLeft / slideWidth);
+        }
+        
+        // Scroll to slide by index (including clones)
+        function scrollToSlide(index, behavior = 'smooth') {
+            allSlides[index].scrollIntoView({ behavior: behavior, inline: 'center', block: 'nearest' });
+        }
+        
+        // Handle infinite loop with smooth transition
+        function handleInfiniteScroll() {
+            if (isScrolling) return;
+            
+            const currentIndex = getCurrentIndex();
+            const totalAllSlides = allSlides.length;
+            
+            // If at clone of last slide (index 0), jump to real last slide
+            if (currentIndex === 0) {
+                isScrolling = true;
+                // Disable transitions temporarily
+                scrollContainer.style.scrollBehavior = 'auto';
+                scrollToSlide(totalSlides, 'auto');
+                // Update active class immediately after jump
+                updateDots(totalSlides);
+                requestAnimationFrame(() => {
+                    scrollContainer.style.scrollBehavior = 'smooth';
+                    isScrolling = false;
+                });
+            }
+            // If at clone of first slide (last index), jump to real first slide
+            else if (currentIndex === totalAllSlides - 1) {
+                isScrolling = true;
+                // Disable transitions temporarily
+                scrollContainer.style.scrollBehavior = 'auto';
+                scrollToSlide(1, 'auto');
+                // Update active class immediately after jump
+                updateDots(1);
+                requestAnimationFrame(() => {
+                    scrollContainer.style.scrollBehavior = 'smooth';
+                    isScrolling = false;
+                });
+            }
+            else {
+                updateDots(currentIndex);
+            }
+        }
+        
+        // Update dots based on current position
+        function updateDots(currentIndex) {
+            // Map to original slide index (subtract 1 for the clone at start)
+            let originalIndex = currentIndex - 1;
+            if (originalIndex < 0) originalIndex = totalSlides - 1;
+            if (originalIndex >= totalSlides) originalIndex = 0;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === originalIndex);
+            });
+            
+            // Update active class on slides
+            allSlides.forEach((slide, i) => {
+                const isActive = i === currentIndex;
+                slide.classList.toggle('active', isActive);
+            });
+        }
+        
+        // Button handlers with loop
+        if (prevBtn) {
+            prevBtn.onclick = () => {
+                const currentIndex = getCurrentIndex();
+                if (currentIndex === 1) {
+                    // At first real slide, go to clone of last
+                    scrollToSlide(0);
+                } else {
+                    scrollToSlide(currentIndex - 1);
+                }
+            };
+        }
+        
+        if (nextBtn) {
+            nextBtn.onclick = () => {
+                const currentIndex = getCurrentIndex();
+                const lastRealIndex = totalSlides;
+                if (currentIndex === lastRealIndex) {
+                    // At last real slide, go to clone of first
+                    scrollToSlide(lastRealIndex + 1);
+                } else {
+                    scrollToSlide(currentIndex + 1);
+                }
+            };
+        }
+        
+        // Listen for scroll events
+        scrollContainer.addEventListener('scroll', handleInfiniteScroll, { passive: true });
+        
+        // Initialize - start at first real slide (index 1)
+        generateDots();
+        setTimeout(() => {
+            scrollToSlide(1, 'auto');
+            updateDots(1);
+        }, 100);
+    } else if (originalSlides.length === 1) {
+        // Single slide - just add active class
+        originalSlides[0].classList.add('active');
+    }
 
 });
